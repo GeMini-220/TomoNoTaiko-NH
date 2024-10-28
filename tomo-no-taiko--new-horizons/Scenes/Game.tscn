@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://8mavc4u0p87e"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="8"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("6")
+
+[node name="Conductor" parent="." instance=ExtResource("8")]
+volume_db = -15.0
+bpm = 115
