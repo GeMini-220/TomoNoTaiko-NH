@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 func _ready():
 	run_tests()
@@ -15,7 +15,7 @@ func run_tests():
 
 # Test cases for Conductor.gd
 func test_sec_per_beat_calculation():
-	var conductor = preload("res://Scripts/Conductor.gd").new()
+	var conductor = preload("res://Scenes/Conductor.tscn").instantiate()
 	conductor.bpm = 120
 	conductor._ready()
 	assert(conductor.sec_per_beat == 0.5, "sec_per_beat calculation failed for 120 BPM")
@@ -25,7 +25,7 @@ func test_sec_per_beat_calculation():
 	assert(conductor.sec_per_beat == 1.0, "sec_per_beat calculation failed for 60 BPM")
 
 func test_report_beat():
-	var conductor = preload("res://Scripts/Conductor.gd").new()
+	var conductor = preload("res://Scenes/Conductor.tscn").instantiate()
 	conductor.bpm = 120
 	conductor._ready()
 	conductor.song_position = 1.0
@@ -38,7 +38,7 @@ func test_report_beat():
 
 # Test cases for Game.gd
 func test_signal_connection():
-	var game = preload("res://Scripts/Game.gd").new()
+	var game = preload("res://Scenes/Game.tscn").instantiate()
 	game._ready()
 	var game_on_conductor_beat = Callable(game, "_on_conductor_beat")
 	var game_on_conductor_measure = Callable(game, "_on_conductor_measure")
