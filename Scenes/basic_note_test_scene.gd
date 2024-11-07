@@ -11,9 +11,7 @@ func _ready():
 func spawn_note(position: Vector2) -> void:
 	# Create an instance of the Note scene
 	var note_instance = BasicNoteScene.instantiate()
-		
 	# Set the position of the instance
 	note_instance.position = position
-		
 	# Add the note instance as a child to the main scene
 	add_child(note_instance)
