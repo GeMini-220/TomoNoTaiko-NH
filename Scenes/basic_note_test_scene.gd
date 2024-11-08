@@ -6,7 +6,9 @@ var BasicNoteScene = preload("res://Scenes/BasicNote.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Call the function to instance and position the note
-	spawn_note(Vector2(400, 300))  # Adjust position as needed
+	while true:
+		await get_tree().create_timer(1.0).timeout
+		spawn_note(Vector2(randi() % 1600, randi() % 900))  # Adjust position as needed
 	
 func spawn_note(position: Vector2) -> void:
 	# Create an instance of the Note scene
