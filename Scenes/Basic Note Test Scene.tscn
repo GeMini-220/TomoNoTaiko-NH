@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwc4fly4cipkl"]
+
+[ext_resource type="Script" path="res://Scenes/basic_note_test_scene.gd" id="1_2pgpp"]
+
+[node name="BasicNoteTestScene" type="Node2D"]
+script = ExtResource("1_2pgpp")
