@@ -15,7 +15,6 @@ var beats_before_start = 0
 func _ready():
 	sec_per_beat = 60.0 / bpm
 
-
 func _physics_process(_delta):
 	if playing:
 		song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
@@ -59,3 +58,7 @@ func _on_StartTimer_timeout():
 		play()
 		$StartTimer.stop()
 	_report_beat()
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

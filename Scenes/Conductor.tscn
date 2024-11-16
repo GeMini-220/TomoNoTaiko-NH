@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://6pfc4j80qsvn"]
+[gd_scene load_steps=3 format=3 uid="uid://6pfc4j80qsvn"]
 
 [ext_resource type="Script" path="res://Scripts/Conductor.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://dx3u22pkac0s6" path="res://Singletons/One Piece OP 1 - We Are! Lyrics.mp3" id="1_50bg4"]
 
 [node name="Conductor" type="AudioStreamPlayer"]
+stream = ExtResource("1_50bg4")
+volume_db = 5.222
 script = ExtResource("1")
 
 [node name="StartTimer" type="Timer" parent="."]

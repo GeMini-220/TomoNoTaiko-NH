@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b03hqb6acnvni"]
+
+[ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_elrdy"]
+[ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_5hci0"]
+
+[node name="beatmape interpreter test scene" type="Node2D"]
+script = ExtResource("1_elrdy")
+
+[node name="Conductor" parent="." instance=ExtResource("2_5hci0")]
+bpm = 96
+
+[node name="Timer" type="Timer" parent="Conductor"]
+one_shot = true
+
+[connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
