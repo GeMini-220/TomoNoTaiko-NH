@@ -9,14 +9,18 @@ var note_index = 0
 var beatmap = {}
 @onready var conductor = $Conductor
 @onready var Global = $"/root/Global"
+@onready var score_display = $ScoreDisplay
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Conductor.play_with_beat_offset(0)		# can change offset
+	conductor.play_with_beat_offset(0)		# can change offset
 	Global.beat.connect(_on_Conductor_beat)
 	#Global.measure.connect(_on_Conductor_measure)
 	
+func _process(delta: float) -> void:
+	# Update the score display every frame
+	score_display.text = "Score: " + str(Global.score) + " Combo: " + str(Global.combo)
 	
 func _on_Conductor_beat(position):
 	var beatmap = StaticData.beatmapData["notes"]

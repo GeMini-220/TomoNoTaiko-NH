@@ -12,4 +12,8 @@ bpm = 96
 [node name="Timer" type="Timer" parent="Conductor"]
 one_shot = true
 
+[node name="ScoreDisplay" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
