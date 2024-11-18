@@ -1,7 +1,7 @@
 extends Node2D
 
 # Preload the Note scene
-var BasicNoteScene = preload("res://Scenes/BasicNote.tscn")
+var BasicNoteScene = preload("res://Scenes/Basic Note.tscn")
 var current_x = 0
 var current_y = 0
 var current_beat = 0
@@ -30,6 +30,10 @@ func _on_Conductor_beat(position):
 		if current_beat == song_position_in_beats:
 			spawn_note(Vector2(current_x,current_y))  # Adjust position as needed
 			print("Current beat:", current_beat, "\nSong Position:", song_position_in_beats)
+
+
+func _on_conductor_measure(song_position_in_measure):
+	pass
 	
 	
 func spawn_note(position: Vector2) -> void:

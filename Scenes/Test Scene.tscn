@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://e20x8jx7qthj"]
-
-[ext_resource type="Script" path="res://Scripts/CodeTesting.gd" id="1_ggrtp"]
-
-[node name="TestScene" type="Node2D"]
-script = ExtResource("1_ggrtp")

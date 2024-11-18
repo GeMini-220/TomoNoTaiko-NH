@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://ufehdors2dyf"]
 
-[ext_resource type="Texture2D" uid="uid://db7hram7vav25" path="res://temp_sprites/pngimg.com - circle_PNG3.png" id="1_18rxu"]
-[ext_resource type="Script" path="res://Scripts/basic_note.gd" id="1_nvkfn"]
+[ext_resource type="Script" path="res://Scripts/basic_note.gd" id="1_6ngmq"]
+[ext_resource type="Texture2D" uid="uid://db7hram7vav25" path="res://temp_sprites/pngimg.com - circle_PNG3.png" id="2_xj4ar"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vayg4"]
 
 [node name="BasicNote" type="Node2D"]
-script = ExtResource("1_nvkfn")
+script = ExtResource("1_6ngmq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.008, 0.008)
-texture = ExtResource("1_18rxu")
+texture = ExtResource("2_xj4ar")
 
 [node name="Area2D" type="Area2D" parent="."]
 
