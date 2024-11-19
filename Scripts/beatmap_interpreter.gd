@@ -37,6 +37,6 @@ func spawn_note(position: Vector2) -> void:
 	var note_instance = BasicNoteScene.instantiate()
 	# Set the position of the instance
 	note_instance.position = position
-	# Add the note instance as a child to the main scene
-	add_child(note_instance)
+	# Add the note instance as a child to the notes node
+	$notes.add_child(note_instance)
 	print("Note spawned at position:", position)	# Debugging: Confirm position

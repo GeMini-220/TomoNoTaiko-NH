@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddnl2ep82hvkf"]
+[gd_scene load_steps=3 format=3 uid="uid://ddnl2ep82hvkf"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_tv1r0"]
+[ext_resource type="VideoStream" path="res://UI stuffs/mainmenu(for playtest).ogv" id="2_pp8os"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -13,24 +14,53 @@ script = ExtResource("1_tv1r0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 776.0
+offset_bottom = 494.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "PLAY"
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.604681, 0.60675)
+stream = ExtResource("2_pp8os")
+autoplay = true
+expand = true
+loop = true
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-text = "OPTIONS"
+offset_left = 502.0
+offset_top = 548.0
+offset_right = 702.0
+offset_bottom = 648.0
+icon_alignment = 1
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-text = "QUIT"
+offset_left = 155.0
+offset_top = 548.0
+offset_right = 355.0
+offset_bottom = 648.0
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Quit" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_left = 834.0
+offset_top = 549.0
+offset_right = 1034.0
+offset_bottom = 649.0
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
