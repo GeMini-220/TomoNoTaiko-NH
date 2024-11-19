@@ -13,7 +13,8 @@ bpm = 96
 one_shot = true
 
 [node name="ScoreDisplay" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 103.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 10
 
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
