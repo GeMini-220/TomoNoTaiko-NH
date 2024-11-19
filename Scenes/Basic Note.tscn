@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://db7hram7vav25" path="res://temp_sprites/pngimg.com - circle_PNG3.png" id="2_xj4ar"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vayg4"]
+radius = 25.652
 
 [node name="BasicNote" type="Node2D"]
 script = ExtResource("1_6ngmq")
