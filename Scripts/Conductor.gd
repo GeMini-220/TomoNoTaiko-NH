@@ -29,6 +29,7 @@ func _report_beat():
 			song_position_in_measure = 1
 		Global.beat.emit(song_position_in_beat)
 		Global.measure.emit(song_position_in_measure)
+		print('beat: ' + str(song_position_in_beat))
 		last_reported_beat = song_position_in_beat
 		song_position_in_measure += 1
 
