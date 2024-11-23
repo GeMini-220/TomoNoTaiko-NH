@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddnl2ep82hvkf"]
+[gd_scene load_steps=3 format=3 uid="uid://ddnl2ep82hvkf"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_lo4r5"]
+[ext_resource type="VideoStream" path="res://temp_sprites/mainmenu(for playtest).ogv" id="2_emgcr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -19,18 +20,45 @@ offset_bottom = 40.0
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "PLAY"
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.600056, 0.595502)
+stream = ExtResource("2_emgcr")
+autoplay = true
+loop = true
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
 layout_mode = 2
-text = "OPTIONS"
+offset_left = 565.0
+offset_top = 615.0
+offset_right = 644.0
+offset_bottom = 646.0
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
-text = "QUIT"
+offset_left = 184.0
+offset_top = 560.0
+offset_right = 334.0
+offset_bottom = 610.0
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Quit" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 2
+offset_left = 969.0
+offset_top = 617.0
+offset_right = 1048.0
+offset_bottom = 648.0
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
