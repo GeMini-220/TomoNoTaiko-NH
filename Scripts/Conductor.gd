@@ -29,9 +29,15 @@ func _report_beat():
 			song_position_in_measure = 1
 		Global.beat.emit(song_position_in_beat)
 		Global.measure.emit(song_position_in_measure)
-		print('beat: ' + str(song_position_in_beat))
+		#print('beat: ' + str(song_position_in_beat)) debugging
 		last_reported_beat = song_position_in_beat
 		song_position_in_measure += 1
+
+
+#func _input(event):
+	# debugging
+	#if event is InputEventMouseButton and event.pressed:
+		#print('beat: ' + str(song_position_in_beat))
 
 
 func play_with_beat_offset(num):

@@ -2,7 +2,7 @@ extends Node
 
 var beatmapData = {}
 
-var data_file_path = "res://Beatmap file/demo2.json"
+var data_file_path = "res://Beatmap file/demo.json"
 
 
 func _ready():
