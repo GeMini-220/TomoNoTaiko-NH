@@ -7,6 +7,11 @@ signal measure(position)
 var score: int = 0
 var combo: int = 0
 
+@onready var AudioPlayer: AudioStreamPlayer = AudioStreamPlayer.new()
+
+func _ready():
+	add_child(AudioPlayer)
+
 # Function to add points
 func add_score(points: int) -> void:
 	if combo == 0:

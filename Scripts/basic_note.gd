@@ -4,6 +4,7 @@ signal note_deleted(clicked: bool)
 var timer: Timer
 var delay_time = 1.1
 
+@onready var OnClickAudio = $OnClickAudio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,10 +13,10 @@ func _ready() -> void:
 	_delayed_delete()
 
 
-
 # Function to handle mouse click events.
 func _note_clicked(viewport, event, shape) -> void:
 	if event is InputEventMouseButton and event.pressed:
+		OnClickAudio.play()
 		if timer.time_left >= delay_time * 0.8:
 			Global.add_score(100)
 			print("Perfect")

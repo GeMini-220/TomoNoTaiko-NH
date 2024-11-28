@@ -5,7 +5,6 @@
 
 [node name="Conductor" type="AudioStreamPlayer"]
 stream = ExtResource("1_jf7r1")
-volume_db = 5.222
 script = ExtResource("1")
 bpm = 132
 
