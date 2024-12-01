@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddnl2ep82hvkf"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_lo4r5"]
-[ext_resource type="VideoStream" path="res://temp_sprites/mainmenu(for playtest).ogv" id="2_emgcr"]
+[ext_resource type="VideoStream" path="res://Assets/UI/Background/Main Menu.ogv" id="2_wn5y7"]
 [ext_resource type="AudioStream" uid="uid://cifb3gv51fbrx" path="res://Assets/SFX/TNTNH Menu Button Hover 2.wav" id="4_5ka8l"]
 
 [node name="Menu" type="Control"]
@@ -31,7 +31,7 @@ offset_bottom = 440.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.600056, 0.595502)
-stream = ExtResource("2_emgcr")
+stream = ExtResource("2_wn5y7")
 autoplay = true
 loop = true
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqmy60odfn3yt"
-path="res://.godot/imported/Timeline 2_0012.png-0f93f012ad79888c73d75a2cf133acf5.ctex"
+uid="uid://bosak2bdau28w"
+path="res://.godot/imported/Timeline 2_0010.png-5a79eb7f893f153c7cda90d665de1b97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0012.png"
-dest_files=["res://.godot/imported/Timeline 2_0012.png-0f93f012ad79888c73d75a2cf133acf5.ctex"]
+source_file="res://Assets/UI/Boss/Timeline 2_0010.png"
+dest_files=["res://.godot/imported/Timeline 2_0010.png-5a79eb7f893f153c7cda90d665de1b97.ctex"]
 
 [params]
 

@@ -2,31 +2,31 @@
 
 [ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_36v4f"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_k7nr0"]
-[ext_resource type="VideoStream" path="res://temp_sprites/Main-Shortened(Preview).ogv" id="3_wm4c5"]
-[ext_resource type="Texture2D" uid="uid://bcyxphb6dyu0y" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0000.png" id="4_mfyja"]
-[ext_resource type="Texture2D" uid="uid://brq3eg1v4l1i7" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0001.png" id="5_o3g1r"]
-[ext_resource type="Texture2D" uid="uid://cjett57h250cg" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0002.png" id="6_fbclb"]
-[ext_resource type="Texture2D" uid="uid://dytsgqxat2x7s" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0003.png" id="7_yw2yx"]
-[ext_resource type="Texture2D" uid="uid://6lxkoqsfgjxh" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0004.png" id="8_qhd7d"]
-[ext_resource type="Texture2D" uid="uid://dujs1x0o317w3" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0005.png" id="9_8dymy"]
-[ext_resource type="Texture2D" uid="uid://i0p2fqq28ee7" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0006.png" id="10_mo6p1"]
-[ext_resource type="Texture2D" uid="uid://d4e24g15oavd1" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0007.png" id="11_cj4ty"]
-[ext_resource type="Texture2D" uid="uid://38velp51oc6r" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0008.png" id="12_wc28q"]
-[ext_resource type="Texture2D" uid="uid://cqhl6wj70stm3" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0009.png" id="13_1y7lb"]
-[ext_resource type="Texture2D" uid="uid://bosak2bdau28w" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0010.png" id="14_ahc26"]
-[ext_resource type="Texture2D" uid="uid://bjo6i38tovqdr" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0011.png" id="15_7ma6y"]
-[ext_resource type="Texture2D" uid="uid://cqmy60odfn3yt" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0012.png" id="16_o5e3i"]
-[ext_resource type="Texture2D" uid="uid://bpq0yug2tafqd" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0013.png" id="17_ygxua"]
-[ext_resource type="Texture2D" uid="uid://swqibpi3hihb" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0014.png" id="18_51ka7"]
-[ext_resource type="Texture2D" uid="uid://byw5dxmytae3l" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0015.png" id="19_xhx0r"]
-[ext_resource type="Texture2D" uid="uid://s4vm86242ust" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0016.png" id="20_emrh7"]
-[ext_resource type="Texture2D" uid="uid://cpby4ndb4pmi5" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0017.png" id="21_li5q7"]
-[ext_resource type="Texture2D" uid="uid://xgbjxuapgrcc" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0018.png" id="22_pwj5g"]
-[ext_resource type="Texture2D" uid="uid://cky14brfgjijj" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0019.png" id="23_yis4t"]
-[ext_resource type="Texture2D" uid="uid://2a0jyg85jqwk" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0020.png" id="24_fmov7"]
-[ext_resource type="Texture2D" uid="uid://w2vpa8bt63j6" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0021.png" id="25_5k7lh"]
-[ext_resource type="Texture2D" uid="uid://gcc212hd0lw3" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0022.png" id="26_q0tsg"]
-[ext_resource type="Texture2D" uid="uid://tnejc2xpkg81" path="res://temp_sprites/12 fps, 2 seconds/Timeline 2_0023.png" id="27_ag6md"]
+[ext_resource type="VideoStream" path="res://Assets/UI/Background/Main.ogv" id="3_x32y7"]
+[ext_resource type="Texture2D" uid="uid://bcyxphb6dyu0y" path="res://Assets/UI/Boss/Timeline 2_0000.png" id="4_mfyja"]
+[ext_resource type="Texture2D" uid="uid://brq3eg1v4l1i7" path="res://Assets/UI/Boss/Timeline 2_0001.png" id="5_o3g1r"]
+[ext_resource type="Texture2D" uid="uid://cjett57h250cg" path="res://Assets/UI/Boss/Timeline 2_0002.png" id="6_fbclb"]
+[ext_resource type="Texture2D" uid="uid://dytsgqxat2x7s" path="res://Assets/UI/Boss/Timeline 2_0003.png" id="7_yw2yx"]
+[ext_resource type="Texture2D" uid="uid://6lxkoqsfgjxh" path="res://Assets/UI/Boss/Timeline 2_0004.png" id="8_qhd7d"]
+[ext_resource type="Texture2D" uid="uid://dujs1x0o317w3" path="res://Assets/UI/Boss/Timeline 2_0005.png" id="9_8dymy"]
+[ext_resource type="Texture2D" uid="uid://i0p2fqq28ee7" path="res://Assets/UI/Boss/Timeline 2_0006.png" id="10_mo6p1"]
+[ext_resource type="Texture2D" uid="uid://d4e24g15oavd1" path="res://Assets/UI/Boss/Timeline 2_0007.png" id="11_cj4ty"]
+[ext_resource type="Texture2D" uid="uid://38velp51oc6r" path="res://Assets/UI/Boss/Timeline 2_0008.png" id="12_wc28q"]
+[ext_resource type="Texture2D" uid="uid://cqhl6wj70stm3" path="res://Assets/UI/Boss/Timeline 2_0009.png" id="13_1y7lb"]
+[ext_resource type="Texture2D" uid="uid://bosak2bdau28w" path="res://Assets/UI/Boss/Timeline 2_0010.png" id="14_ahc26"]
+[ext_resource type="Texture2D" uid="uid://bjo6i38tovqdr" path="res://Assets/UI/Boss/Timeline 2_0011.png" id="15_7ma6y"]
+[ext_resource type="Texture2D" uid="uid://cqmy60odfn3yt" path="res://Assets/UI/Boss/Timeline 2_0012.png" id="16_o5e3i"]
+[ext_resource type="Texture2D" uid="uid://bpq0yug2tafqd" path="res://Assets/UI/Boss/Timeline 2_0013.png" id="17_ygxua"]
+[ext_resource type="Texture2D" uid="uid://swqibpi3hihb" path="res://Assets/UI/Boss/Timeline 2_0014.png" id="18_51ka7"]
+[ext_resource type="Texture2D" uid="uid://byw5dxmytae3l" path="res://Assets/UI/Boss/Timeline 2_0015.png" id="19_xhx0r"]
+[ext_resource type="Texture2D" uid="uid://s4vm86242ust" path="res://Assets/UI/Boss/Timeline 2_0016.png" id="20_emrh7"]
+[ext_resource type="Texture2D" uid="uid://cpby4ndb4pmi5" path="res://Assets/UI/Boss/Timeline 2_0017.png" id="21_li5q7"]
+[ext_resource type="Texture2D" uid="uid://xgbjxuapgrcc" path="res://Assets/UI/Boss/Timeline 2_0018.png" id="22_pwj5g"]
+[ext_resource type="Texture2D" uid="uid://cky14brfgjijj" path="res://Assets/UI/Boss/Timeline 2_0019.png" id="23_yis4t"]
+[ext_resource type="Texture2D" uid="uid://2a0jyg85jqwk" path="res://Assets/UI/Boss/Timeline 2_0020.png" id="24_fmov7"]
+[ext_resource type="Texture2D" uid="uid://w2vpa8bt63j6" path="res://Assets/UI/Boss/Timeline 2_0021.png" id="25_5k7lh"]
+[ext_resource type="Texture2D" uid="uid://gcc212hd0lw3" path="res://Assets/UI/Boss/Timeline 2_0022.png" id="26_q0tsg"]
+[ext_resource type="Texture2D" uid="uid://tnejc2xpkg81" path="res://Assets/UI/Boss/Timeline 2_0023.png" id="27_ag6md"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cmopy"]
 animations = [{
@@ -127,7 +127,7 @@ offset_right = 1920.0
 offset_bottom = 1088.0
 scale = Vector2(0.600037, 0.595639)
 mouse_filter = 2
-stream = ExtResource("3_wm4c5")
+stream = ExtResource("3_x32y7")
 autoplay = true
 loop = true
 
