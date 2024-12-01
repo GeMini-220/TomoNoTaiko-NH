@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6pfc4j80qsvn"]
 
 [ext_resource type="Script" path="res://Scripts/conductor.gd" id="1"]
-[ext_resource type="AudioStream" uid="uid://cagjqfha1acqf" path="res://Assets/Beatmap/Taiko Music.mp3" id="1_jf7r1"]
+[ext_resource type="AudioStream" uid="uid://cagjqfha1acqf" path="res://Assets/Sound Tracks/Taiko Music.mp3" id="1_jf7r1"]
 
 [node name="Conductor" type="AudioStreamPlayer"]
 stream = ExtResource("1_jf7r1")
