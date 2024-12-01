@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dheb7d6q60e4l"
+path="res://.godot/imported/TNTNH Menu Button Select.wav-3e6d269d831cae0946c6bdd5b44fe997.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/TNTNH Menu Button Select.wav"
+dest_files=["res://.godot/imported/TNTNH Menu Button Select.wav-3e6d269d831cae0946c6bdd5b44fe997.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

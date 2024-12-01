@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/basic_note.gd" id="1_6ngmq"]
 [ext_resource type="Texture2D" uid="uid://db7hram7vav25" path="res://temp_sprites/pngimg.com - circle_PNG3.png" id="2_xj4ar"]
-[ext_resource type="AudioStream" uid="uid://318t6ky0co8m" path="res://SFX/TNTNH Note Sound.wav" id="3_uco4a"]
+[ext_resource type="AudioStream" uid="uid://318t6ky0co8m" path="res://Assets/SFX/TNTNH Note Sound.wav" id="3_uco4a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vayg4"]
 radius = 30.0206

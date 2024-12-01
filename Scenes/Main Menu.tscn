@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_lo4r5"]
 [ext_resource type="VideoStream" path="res://temp_sprites/mainmenu(for playtest).ogv" id="2_emgcr"]
-[ext_resource type="AudioStream" uid="uid://cifb3gv51fbrx" path="res://SFX/TNTNH Menu Button Hover 2.wav" id="4_5ka8l"]
+[ext_resource type="AudioStream" uid="uid://cifb3gv51fbrx" path="res://Assets/SFX/TNTNH Menu Button Hover 2.wav" id="4_5ka8l"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3

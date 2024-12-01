@@ -3,7 +3,7 @@ extends Control
 @onready var OnHoverAudio = $OnHoverAudio
 
 func on_pressed():
-	Global.AudioPlayer.stream = preload("res://SFX/TNTNH Menu Button Select.wav")
+	Global.AudioPlayer.stream = preload("res://Assets/SFX/TNTNH Menu Button Select.wav")
 	Global.AudioPlayer.play()
 
 func _on_play_pressed() -> void:

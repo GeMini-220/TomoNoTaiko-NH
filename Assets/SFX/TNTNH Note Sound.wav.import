@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://318t6ky0co8m"
+path="res://.godot/imported/TNTNH Note Sound.wav-ad9ceff886fba898aa5c6e794c7c5f0f.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/TNTNH Note Sound.wav"
+dest_files=["res://.godot/imported/TNTNH Note Sound.wav-ad9ceff886fba898aa5c6e794c7c5f0f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
