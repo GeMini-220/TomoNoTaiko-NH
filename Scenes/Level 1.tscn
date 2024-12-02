@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://b03hqb6acnvni"]
+[gd_scene load_steps=33 format=3 uid="uid://b03hqb6acnvni"]
 
 [ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_36v4f"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_k7nr0"]
-[ext_resource type="VideoStream" path="res://Assets/UI/Background/Main.ogv" id="3_x32y7"]
+[ext_resource type="VideoStream" path="res://Assets/UI/Background/Level 1.ogv" id="3_8rbvv"]
 [ext_resource type="Texture2D" uid="uid://bcyxphb6dyu0y" path="res://Assets/UI/Boss/Timeline 2_0000.png" id="4_mfyja"]
+[ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="4_rbnvs"]
 [ext_resource type="Texture2D" uid="uid://brq3eg1v4l1i7" path="res://Assets/UI/Boss/Timeline 2_0001.png" id="5_o3g1r"]
 [ext_resource type="Texture2D" uid="uid://cjett57h250cg" path="res://Assets/UI/Boss/Timeline 2_0002.png" id="6_fbclb"]
 [ext_resource type="Texture2D" uid="uid://dytsgqxat2x7s" path="res://Assets/UI/Boss/Timeline 2_0003.png" id="7_yw2yx"]
@@ -27,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://w2vpa8bt63j6" path="res://Assets/UI/Boss/Timeline 2_0021.png" id="25_5k7lh"]
 [ext_resource type="Texture2D" uid="uid://gcc212hd0lw3" path="res://Assets/UI/Boss/Timeline 2_0022.png" id="26_q0tsg"]
 [ext_resource type="Texture2D" uid="uid://tnejc2xpkg81" path="res://Assets/UI/Boss/Timeline 2_0023.png" id="27_ag6md"]
+[ext_resource type="Texture2D" uid="uid://b51v4bbp66myw" path="res://Assets/UI/Background/Score.png" id="29_u8pq6"]
+[ext_resource type="Texture2D" uid="uid://ba306dy14fp6q" path="res://Assets/UI/Background/Boss Icon.png" id="31_pgdfy"]
+[ext_resource type="Texture2D" uid="uid://dkok21afdaxhr" path="res://Assets/UI/Background/Railing.png" id="31_v2phh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cmopy"]
 animations = [{
@@ -121,21 +125,26 @@ script = ExtResource("1_36v4f")
 [node name="Timer" type="Timer" parent="Conductor"]
 one_shot = true
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+[node name="Bg" type="VideoStreamPlayer" parent="."]
 offset_right = 1920.0
 offset_bottom = 1088.0
 scale = Vector2(0.600037, 0.595639)
 mouse_filter = 2
-stream = ExtResource("3_x32y7")
+stream = ExtResource("3_8rbvv")
 autoplay = true
 loop = true
 
 [node name="ScoreDisplay" type="Label" parent="."]
-offset_right = 103.0
-offset_bottom = 51.0
-theme_override_font_sizes/font_size = 10
+top_level = true
+offset_left = 191.0
+offset_top = 100.0
+offset_right = 394.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("4_rbnvs")
+theme_override_font_sizes/font_size = 40
+text = "999999"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Boss" type="AnimatedSprite2D" parent="."]
 position = Vector2(400, 348)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_cmopy")
@@ -143,5 +152,21 @@ animation = &"boss_animation"
 autoplay = "boss_animation"
 frame = 23
 frame_progress = 0.86918
+
+[node name="Score" type="Sprite2D" parent="."]
+position = Vector2(216, 108)
+scale = Vector2(0.255981, 0.255981)
+texture = ExtResource("29_u8pq6")
+
+[node name="Railing" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576.619, 245.125)
+scale = Vector2(0.736098, 0.736098)
+texture = ExtResource("31_v2phh")
+
+[node name="BossIcon" type="Sprite2D" parent="."]
+position = Vector2(102.32, 80.8992)
+scale = Vector2(-0.221563, 0.221563)
+texture = ExtResource("31_pgdfy")
 
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]

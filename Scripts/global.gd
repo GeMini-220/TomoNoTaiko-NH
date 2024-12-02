@@ -18,7 +18,7 @@ func _ready():
 func add_score(points: int) -> void:
 	score += points
 	combo += 1
-	print("Current Score: ", score, " | Combo: x", combo)
+	#print("Current Score: ", score, " | Combo: x", combo)
 
 #reset score(call when starting level)
 func reset_score() -> void:

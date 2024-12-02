@@ -1,6 +1,5 @@
 extends Node2D
 
-# Preload the Note scene
 var BasicNoteScene = preload("res://Scenes/Basic Note.tscn")
 
 var beat_offset = 2 # audio starts after 2 beats
@@ -16,8 +15,6 @@ var beatmap = {}
 @onready var Global = $"/root/Global"
 @onready var score_display = $ScoreDisplay
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	conductor.bpm = StaticData.beatmapData["bpm"]
 	#print(conductor.bpm)
@@ -27,17 +24,17 @@ func _ready():
 	Global.beat.connect(_on_Conductor_beat)
 	#Global.measure.connect(_on_Conductor_measure)
 
-func _process(delta: float) -> void:
-	# Update the score display every frame
-	score_display.text = "Score: " + str(Global.score) + " Combo: " + str(Global.combo)
+func _process(delta: float):
+	score_display.text = str(Global.score)
+	if Global.combo != 0:
+		score_display.text += "\n" + str(Global.combo) + "x Combo"
 
 func _on_Conductor_beat(song_position_in_beats):
-	#print("Song Position:", song_position_in_beats)
 	var beatmap = StaticData.beatmapData["notes"]
 	#print("Loaded beatmap:", beatmap)	# debugging: confirm beatmap data loaded correctly
 	for note in beatmap:
-		current_x = note["x"] / 9 * 16
-		current_y = note["y"] / 16 * 9 #Temporary Solution; TODO: Fix beatmap generating location
+		current_x = 50 + note["x"] / 9 * 16 * 0.8
+		current_y = 120 + note["y"] / 16 * 9 * 0.8 #Temporary Solution; TODO: Fix beatmap generating location
 		current_beat = note["beat"]
 
 		if current_beat == song_position_in_beats:
@@ -47,7 +44,6 @@ func _on_Conductor_beat(song_position_in_beats):
 			timer.connect("timeout", Callable(self.spawn_note).bind(Vector2(current_x,current_y)))
 			add_child(timer)
 			timer.start()
-			#spawn_note(Vector2(current_x,current_y))  # Adjust position as needed
 			#print("Current beat:", current_beat, "\nSong Position:", song_position_in_beats)
 
 
