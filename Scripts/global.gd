@@ -7,6 +7,8 @@ signal measure(position)
 var score: int = 0
 var combo: int = 0
 
+var standard_score: int
+
 @onready var AudioPlayer: AudioStreamPlayer = AudioStreamPlayer.new()
 
 func _ready():
@@ -14,12 +16,8 @@ func _ready():
 
 # Function to add points
 func add_score(points: int) -> void:
-	if combo == 0:
-		score += points
-	else:
-		score += points * combo
-	if combo <= 10:
-		combo += 1
+	score += points
+	combo += 1
 	print("Current Score: ", score, " | Combo: x", combo)
 
 #reset score(call when starting level)

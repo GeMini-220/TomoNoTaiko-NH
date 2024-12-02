@@ -1,6 +1,7 @@
 extends Node
 
 var beatmapData = {}
+var standard_score = 0
 
 var data_file_path = "res://Assets/Beatmap/Taiko Music.json"
 

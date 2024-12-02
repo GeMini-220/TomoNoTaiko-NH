@@ -1,8 +1,6 @@
-[gd_scene load_steps=62 format=3 uid="uid://ufehdors2dyf"]
+[gd_scene load_steps=60 format=3 uid="uid://ufehdors2dyf"]
 
 [ext_resource type="Script" path="res://Scripts/basic_note.gd" id="1_6ngmq"]
-[ext_resource type="Texture2D" uid="uid://db7hram7vav25" path="res://temp_sprites/pngimg.com - circle_PNG3.png" id="2_xj4ar"]
-[ext_resource type="AudioStream" uid="uid://318t6ky0co8m" path="res://Assets/SFX/TNTNH Note Sound.wav" id="3_uco4a"]
 [ext_resource type="Texture2D" uid="uid://bkxxu42ew12uw" path="res://Assets/UI/Notes/Basic Note v2/BasicNote00.png" id="4_tluxb"]
 [ext_resource type="Texture2D" uid="uid://cvllgtnfy8v" path="res://Assets/UI/Notes/Basic Note v2/BasicNote01.png" id="5_mnrcg"]
 [ext_resource type="Texture2D" uid="uid://d2qa8ujv1j8a" path="res://Assets/UI/Notes/Basic Note v2/BasicNote02.png" id="6_pgikx"]
@@ -242,21 +240,11 @@ animations = [{
 [node name="BasicNote" type="Node2D"]
 script = ExtResource("1_6ngmq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.008, 0.008)
-texture = ExtResource("2_xj4ar")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.9, 0.9)
 shape = SubResource("CircleShape2D_vayg4")
-
-[node name="OnClickAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_uco4a")
-volume_db = 24.0
-pitch_scale = 1.65
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)

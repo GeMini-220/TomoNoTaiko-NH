@@ -1,65 +1,26 @@
 extends Node2D
-signal note_deleted(clicked: bool)
 
-var timer: Timer
-var delay_time = 1.1
+var time_elapsed : float = 0.0
 
-@onready var OnClickAudio = $OnClickAudio
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	# Connect the input_event signal of Area2D to handle clicks.
+func _ready():
 	$Area2D.connect("input_event", _note_clicked)
-	#_delayed_delete()
 
+func _process(delta):
+	time_elapsed += delta
 
-# Function to handle mouse click events.
-func _note_clicked(viewport, event, shape) -> void:
+func _note_clicked(viewport, event, shape):
 	if event is InputEventMouseButton and event.pressed:
-		OnClickAudio.play()
-		#if timer.time_left >= delay_time * 0.8:
-			#Global.add_score(100)
-			#print("Perfect")
-		#elif timer.time_left >= delay_time * 0.5:
-			#Global.add_score(80)
-			#print("Good")
-		#elif timer.time_left >= delay_time * 0.3:
-			#Global.add_score(50)
-			#print("Ok")
-		#else:
-			#Global.add_score(10)
-			#print("Bad")
-		emit_signal("note_deleted", true)
+		if time_elapsed >= 0.460 and time_elapsed <= 0.740: # Perfect
+			Global.add_score(Global.standard_score)
+		elif time_elapsed >= 0.300 and time_elapsed <= 1.000: # Good
+			Global.add_score(Global.standard_score / 2)
+		elif time_elapsed >= 0.200 and time_elapsed <= 1.400: # Ok
+			Global.add_score(Global.standard_score / 5)
+		else: # Bad
+			Global.add_score(0)
+		
 		queue_free()
 
-
-#func _delayed_delete():
-	#timer = Timer.new()
-	#timer.wait_time = delay_time
-	#timer.one_shot = true
-	#add_child(timer)
-	#timer.start()
-	#timer.connect("timeout", Callable(self._timer_timeout))
-#
-#func _timer_timeout() -> void:
-	#emit_signal("note_deleted", false)
-	#queue_free()
-	#print("Miss")
-	#Global.reset_combo()
-
-#func _timer_time() -> float:
-	#if timer and timer.is_stopped() == false:
-		#return timer.time_left
-	#return 0.0
-
-	#await get_tree().create_timer(delay_time).timeout
-	#emit_signal("note_deleted", false)
-	#queue_free()
-	#Score.reset_combo()
-
-
-func _on_animation_finished() -> void:
-	emit_signal("note_deleted", false)
-	queue_free()
-	print("Miss")
+func _on_animation_finished(): # Miss
 	Global.reset_combo()
+	queue_free()
