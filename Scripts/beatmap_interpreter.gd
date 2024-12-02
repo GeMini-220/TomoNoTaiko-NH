@@ -59,7 +59,7 @@ func spawn_note(position: Vector2):
 	var note_instance = BasicNoteScene.instantiate()
 
 	var fps = very_perfect_frame / time_before_very_perfect # the 31st frame should be on beat
-	note_instance.get_node("AnimatedSprite2D").speed_scale = fps / 20 # 20 is default fps
+	note_instance.get_node("Sprite").speed_scale = fps / 20 # 20 is default fps
 
 	note_instance.position = position
 	add_child(note_instance)
