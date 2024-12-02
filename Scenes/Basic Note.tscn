@@ -398,7 +398,7 @@ shape = SubResource("CircleShape2D_vayg4")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_isj0n")
-animation = &"Idle"
+animation = &"On Hit"
 autoplay = "Idle"
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_animation_finished"]

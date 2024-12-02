@@ -36,8 +36,8 @@ func _on_Conductor_beat(song_position_in_beats):
 	var beatmap = StaticData.beatmapData["notes"]
 	#print("Loaded beatmap:", beatmap)	# debugging: confirm beatmap data loaded correctly
 	for note in beatmap:
-		current_x = note["x"]
-		current_y = note["y"]
+		current_x = note["x"] / 9 * 16
+		current_y = note["y"] / 16 * 9 #Temporary Solution; TODO: Fix beatmap generating location
 		current_beat = note["beat"]
 
 		if current_beat == song_position_in_beats:
@@ -51,7 +51,7 @@ func _on_Conductor_beat(song_position_in_beats):
 			#print("Current beat:", current_beat, "\nSong Position:", song_position_in_beats)
 
 
-func _on_conductor_measure(song_position_in_measure):
+func _on_Conductor_measure(song_position_in_measure):
 	pass
 
 
