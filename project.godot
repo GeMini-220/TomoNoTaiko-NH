@@ -13,12 +13,16 @@ config_version=5
 config/name="Tomo No Taiko: New Horizons"
 run/main_scene="res://Scenes/Main Menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Logo/Logo-V1.2-Circle.png"
+
+[audio]
+
+buses/default_bus_layout=""
 
 [autoload]
 
 Global="*res://Scenes/Global.tscn"
-StaticData="*res://Singletons/StaticData.gd"
+StaticData="*res://Scripts/static_data.gd"
 
 [display]
 

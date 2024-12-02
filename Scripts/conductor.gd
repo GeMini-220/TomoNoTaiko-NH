@@ -60,5 +60,5 @@ func _on_StartTimer_timeout():
 	_report_beat()
 
 
-func _on_timer_timeout() -> void:
-	pass # Replace with function body.
+func _on_finished() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dx3u22pkac0s6"
+path="res://.godot/imported/One Piece OP 1 - We Are! Lyrics.mp3-19b1fc37562c53b01e161d851b6cd424.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Tracks/One Piece OP 1 - We Are! Lyrics.mp3"
+dest_files=["res://.godot/imported/One Piece OP 1 - We Are! Lyrics.mp3-19b1fc37562c53b01e161d851b6cd424.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
