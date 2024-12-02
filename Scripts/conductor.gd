@@ -58,3 +58,7 @@ func _on_StartTimer_timeout():
 		play()
 		$StartTimer.stop()
 	_report_beat()
+
+
+func _on_finished() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")

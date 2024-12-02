@@ -8,11 +8,8 @@ var very_perfect_frame = 30 # 31 is the perfect frame
 var current_x = 0
 var current_y = 0
 var current_beat = 0
-var note_index = 0
-var beatmap = {}
 
 @onready var conductor = $Conductor
-@onready var Global = $"/root/Global"
 @onready var score_display = $ScoreDisplay
 
 func _ready():
@@ -24,7 +21,7 @@ func _ready():
 	Global.beat.connect(_on_Conductor_beat)
 	#Global.measure.connect(_on_Conductor_measure)
 
-func _process(delta: float):
+func _process(delta):
 	score_display.text = str(Global.score)
 	if Global.combo != 0:
 		score_display.text += "\n" + str(Global.combo) + "x Combo"

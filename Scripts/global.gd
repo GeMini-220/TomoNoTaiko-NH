@@ -14,14 +14,13 @@ var standard_score: int
 func _ready():
 	add_child(AudioPlayer)
 
-# Function to add points
-func add_score(points: int) -> void:
+func add_score(points: int):
 	score += points
 	combo += 1
 	#print("Current Score: ", score, " | Combo: x", combo)
 
-#reset score(call when starting level)
-func reset_score() -> void:
+# reset score(call when starting level)
+func reset_score():
 	score = 0
 	combo = 0
 

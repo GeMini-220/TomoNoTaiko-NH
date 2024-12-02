@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b03hqb6acnvni"]
+[gd_scene load_steps=36 format=3 uid="uid://b03hqb6acnvni"]
 
 [ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_36v4f"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_k7nr0"]
@@ -31,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://b51v4bbp66myw" path="res://Assets/UI/Background/Score.png" id="29_u8pq6"]
 [ext_resource type="Texture2D" uid="uid://ba306dy14fp6q" path="res://Assets/UI/Background/Boss Icon.png" id="31_pgdfy"]
 [ext_resource type="Texture2D" uid="uid://dkok21afdaxhr" path="res://Assets/UI/Background/Railing.png" id="31_v2phh"]
+[ext_resource type="Texture2D" uid="uid://lkegfs5yxhfr" path="res://Assets/UI/Background/Mask.png" id="33_6sw1e"]
+[ext_resource type="Texture2D" uid="uid://b0l4ub5e7vudv" path="res://Assets/UI/Background/Player.png" id="33_uv84f"]
+[ext_resource type="Texture2D" uid="uid://bgr5eqiidn5uh" path="res://Assets/UI/Background/Taiko.png" id="34_4gqhq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cmopy"]
 animations = [{
@@ -126,6 +129,7 @@ script = ExtResource("1_36v4f")
 one_shot = true
 
 [node name="Bg" type="VideoStreamPlayer" parent="."]
+z_index = -3
 offset_right = 1920.0
 offset_bottom = 1088.0
 scale = Vector2(0.600037, 0.595639)
@@ -145,6 +149,7 @@ theme_override_font_sizes/font_size = 40
 text = "999999"
 
 [node name="Boss" type="AnimatedSprite2D" parent="."]
+z_index = -2
 position = Vector2(400, 348)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_cmopy")
@@ -168,5 +173,22 @@ texture = ExtResource("31_v2phh")
 position = Vector2(102.32, 80.8992)
 scale = Vector2(-0.221563, 0.221563)
 texture = ExtResource("31_pgdfy")
+
+[node name="Mask" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(560, 328)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("33_6sw1e")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(763, 512)
+scale = Vector2(-0.212, 0.212)
+texture = ExtResource("33_uv84f")
+
+[node name="Taiko" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(932, 535)
+scale = Vector2(0.302147, 0.302147)
+texture = ExtResource("34_4gqhq")
 
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
