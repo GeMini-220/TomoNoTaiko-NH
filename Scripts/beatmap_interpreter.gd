@@ -13,10 +13,10 @@ var current_beat = 0
 @onready var score_display = $ScoreDisplay
 
 func _ready():
-	conductor.bpm = StaticData.beatmapData["bpm"]
-	#print(conductor.bpm)
+	Global.score = 0
+	Global.combo = 0
 	Global.standard_score = 999999 / StaticData.beatmapData["notes"].size()
-	#print(Global.standard_score)
+	conductor.bpm = StaticData.beatmapData["bpm"]
 	conductor.play_with_beat_offset(beat_offset)
 	Global.beat.connect(_on_Conductor_beat)
 	#Global.measure.connect(_on_Conductor_measure)
@@ -30,8 +30,8 @@ func _on_Conductor_beat(song_position_in_beats):
 	var beatmap = StaticData.beatmapData["notes"]
 	#print("Loaded beatmap:", beatmap)	# debugging: confirm beatmap data loaded correctly
 	for note in beatmap:
-		current_x = 50 + note["x"] / 9 * 16 * 0.8
-		current_y = 120 + note["y"] / 16 * 9 * 0.8 #Temporary Solution; TODO: Fix beatmap generating location
+		current_x = note["x"] #/ 9 * 16 * 0.8
+		current_y = note["y"] #/ 16 * 9 * 0.8 #Temporary Solution; TODO: Fix beatmap generating location
 		current_beat = note["beat"]
 
 		if current_beat == song_position_in_beats:

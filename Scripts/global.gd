@@ -4,8 +4,8 @@ signal beat(position)
 signal measure(position)
 
 #Global score and combo
-var score: int = 0
-var combo: int = 0
+var score: int
+var combo: int
 
 var standard_score: int
 
