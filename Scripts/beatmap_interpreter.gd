@@ -1,6 +1,7 @@
 extends Node2D
 
 var BasicNoteScene = preload("res://Scenes/Basic Note.tscn")
+var HoldNoteScene = preload("res://Scenes/Hold Note.tscn")
 
 var beat_offset = 2 # audio starts after 2 beats
 var time_before_very_perfect = 0.6
