@@ -11,6 +11,7 @@ var sec_per_beat = 60.0 / bpm
 var last_reported_beat = 0
 var beats_before_start = 0
 
+var end_screen = preload("res://Scenes/End Screen.tscn")
 
 func _ready():
 	sec_per_beat = 60.0 / bpm
@@ -61,4 +62,5 @@ func _on_StartTimer_timeout():
 
 
 func _on_finished() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Main Menu.tscn")
+	var end_screen_instance = end_screen.instantiate()
+	add_child(end_screen_instance)
