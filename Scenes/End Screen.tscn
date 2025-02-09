@@ -29,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_f18vb")
 theme_override_font_sizes/font_size = 80
-text = "You Win!"
+text = "Fully Synchronized"
 horizontal_alignment = 1
 vertical_alignment = 1
 
