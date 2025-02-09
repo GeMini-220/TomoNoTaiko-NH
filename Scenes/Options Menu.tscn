@@ -22,8 +22,6 @@ func _ready() -> void:
 func _on_value_changed(value: float) -> void:
 	# When slider changes, sets AudioServer Master volume
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
-	Global.AudioPlayer.stream = preload(\"res://Assets/SFX/TNTNH Menu Button Select.wav\")
-	Global.AudioPlayer.play()
 "
 
 [sub_resource type="GDScript" id="GDScript_rwsj2"]
@@ -42,8 +40,6 @@ func _ready() -> void:
 func _on_value_changed(value: float) -> void:
 	# When slider changes, sets AudioServer Music volume
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
-	Global.AudioPlayer.stream = preload(\"res://Assets/SFX/TNTNH Menu Button Select.wav\")
-	Global.AudioPlayer.play()
 "
 
 [node name="Options_Menu" type="Control"]
@@ -142,7 +138,7 @@ offset_top = 296.0
 offset_right = 1054.0
 offset_bottom = 312.0
 max_value = 1.0
-step = 0.05
+step = 0.1
 tick_count = 11
 script = SubResource("GDScript_rwsj2")
 bus_name = "Music"
@@ -154,3 +150,4 @@ volume_db = 6.0
 [connection signal="mouse_entered" from="Back" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Back" to="." method="on_pressed"]
+[connection signal="drag_ended" from="master" to="." method="_on_master_drag_ended"]
