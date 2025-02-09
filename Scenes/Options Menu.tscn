@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c71s66mj6flx3"]
+[gd_scene load_steps=8 format=3 uid="uid://c71s66mj6flx3"]
 
 [ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_xrvgt"]
 [ext_resource type="FontFile" uid="uid://ngyldno8k73c" path="res://Assets/UI/Fonts/Sddystopiandemo-GO7xa.otf" id="2_a1wlp"]
@@ -9,7 +9,7 @@
 [sub_resource type="GDScript" id="GDScript_8t52h"]
 script/source = "extends HSlider
 
-var bus_name: String = \"Master\"
+@export var bus_name: String
 var bus_index: int
 
 func _ready() -> void:
@@ -22,6 +22,28 @@ func _ready() -> void:
 func _on_value_changed(value: float) -> void:
 	# When slider changes, sets AudioServer Master volume
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	Global.AudioPlayer.stream = preload(\"res://Assets/SFX/TNTNH Menu Button Select.wav\")
+	Global.AudioPlayer.play()
+"
+
+[sub_resource type="GDScript" id="GDScript_rwsj2"]
+script/source = "extends HSlider
+
+@export var bus_name: String
+var bus_index: int
+
+func _ready() -> void:
+	# Finds index of Music volume, changes db when slider changes
+	bus_index = AudioServer.get_bus_index(bus_name)
+	value_changed.connect(_on_value_changed)
+	
+	value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
+
+func _on_value_changed(value: float) -> void:
+	# When slider changes, sets AudioServer Music volume
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	Global.AudioPlayer.stream = preload(\"res://Assets/SFX/TNTNH Menu Button Select.wav\")
+	Global.AudioPlayer.play()
 "
 
 [node name="Options_Menu" type="Control"]
@@ -35,6 +57,7 @@ script = ExtResource("1_xrvgt")
 
 [node name="Bg" type="VideoStreamPlayer" parent="."]
 z_index = -3
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1088.0
 scale = Vector2(0.600037, 0.595639)
@@ -74,16 +97,28 @@ theme_override_font_sizes/font_size = 80
 text = "OPTIONS"
 horizontal_alignment = 1
 
-[node name="VolumeLabel" type="Label" parent="."]
+[node name="MasterVolume" type="Label" parent="."]
 z_index = 2
 layout_mode = 0
 offset_left = 432.0
-offset_top = 152.0
+offset_top = 168.0
 offset_right = 725.0
-offset_bottom = 230.0
+offset_bottom = 246.0
 theme_override_fonts/font = ExtResource("2_a1wlp")
 theme_override_font_sizes/font_size = 40
 text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 432.0
+offset_top = 264.0
+offset_right = 725.0
+offset_bottom = 342.0
+theme_override_fonts/font = ExtResource("2_a1wlp")
+theme_override_font_sizes/font_size = 40
+text = "MUSIC VOLUME"
 horizontal_alignment = 1
 
 [node name="master" type="HSlider" parent="."]
@@ -94,9 +129,23 @@ offset_top = 200.0
 offset_right = 1054.0
 offset_bottom = 216.0
 max_value = 1.0
-step = 0.05
+step = 0.1
 tick_count = 11
 script = SubResource("GDScript_8t52h")
+bus_name = "Master"
+
+[node name="music" type="HSlider" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 96.0
+offset_top = 296.0
+offset_right = 1054.0
+offset_bottom = 312.0
+max_value = 1.0
+step = 0.05
+tick_count = 11
+script = SubResource("GDScript_rwsj2")
+bus_name = "Music"
 
 [node name="OnHoverAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_60fcb")
