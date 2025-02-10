@@ -33,6 +33,12 @@ func _note_clicked(viewport, event, shape):
 			evaluate_hold_rating()
 			note_end()
 
+
+func _on_area_2d_mouse_exited():
+	if held:
+		evaluate_hold_rating()
+		note_end()
+
 func evaluate_click_rating():
 	if time_elapsed >= 0.460 and time_elapsed <= 0.740:
 		click_rating = Rating.PERFECT
@@ -45,7 +51,7 @@ func evaluate_click_rating():
 
 func evaluate_hold_rating():
 	var ratio = hold_time / duration
-	if ratio >= 1.0:
+	if ratio >= 0.95:
 		hold_rating = Rating.PERFECT
 	elif ratio >= 0.8:
 		hold_rating = Rating.GOOD

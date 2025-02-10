@@ -401,4 +401,5 @@ sprite_frames = SubResource("SpriteFrames_ggqq4")
 animation = &"Idle"
 autoplay = "Idle"
 
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
