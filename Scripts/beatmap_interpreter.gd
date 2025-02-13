@@ -11,6 +11,7 @@ var current_beat = 0
 
 @onready var conductor = $Conductor
 @onready var score_display = $ScoreDisplay
+@onready var health_bar = $HealthBar
 
 func _ready():
 	Global.score = 0
@@ -23,6 +24,7 @@ func _ready():
 
 func _process(delta):
 	score_display.text = str(Global.score)
+	health_bar.value = 999999 - Global.score
 	if Global.combo != 0:
 		score_display.text += "\n" + str(Global.combo) + "x Combo"
 

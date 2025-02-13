@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b03hqb6acnvni"]
+[gd_scene load_steps=37 format=3 uid="uid://b03hqb6acnvni"]
 
 [ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_36v4f"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_k7nr0"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dkok21afdaxhr" path="res://Assets/UI/Background/Railing.png" id="31_v2phh"]
 [ext_resource type="Texture2D" uid="uid://lkegfs5yxhfr" path="res://Assets/UI/Background/Mask.png" id="33_6sw1e"]
 [ext_resource type="Texture2D" uid="uid://b0l4ub5e7vudv" path="res://Assets/UI/Background/Player.png" id="33_uv84f"]
+[ext_resource type="Texture2D" uid="uid://di2il6av83xcf" path="res://Assets/UI/Background/Empty Health.png" id="34_0ef40"]
 [ext_resource type="Texture2D" uid="uid://bgr5eqiidn5uh" path="res://Assets/UI/Background/Taiko.png" id="34_4gqhq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cmopy"]
@@ -148,6 +149,20 @@ theme_override_fonts/font = ExtResource("4_rbnvs")
 theme_override_font_sizes/font_size = 40
 text = "999999"
 
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 26.0
+offset_top = 28.0
+offset_right = 1509.0
+offset_bottom = 655.0
+scale = Vector2(0.256, 0.256)
+max_value = 999999.0
+value = 999999.0
+fill_mode = 5
+radial_initial_angle = 175.0
+radial_center_offset = Vector2(-432, 0)
+texture_under = ExtResource("34_0ef40")
+texture_progress = ExtResource("29_u8pq6")
+
 [node name="Boss" type="AnimatedSprite2D" parent="."]
 z_index = -2
 position = Vector2(400, 348)
@@ -157,11 +172,6 @@ animation = &"boss_animation"
 autoplay = "boss_animation"
 frame = 23
 frame_progress = 0.86918
-
-[node name="Score" type="Sprite2D" parent="."]
-position = Vector2(216, 108)
-scale = Vector2(0.255981, 0.255981)
-texture = ExtResource("29_u8pq6")
 
 [node name="Railing" type="Sprite2D" parent="."]
 visible = false
