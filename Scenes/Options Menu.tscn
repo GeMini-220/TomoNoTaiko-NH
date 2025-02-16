@@ -13,15 +13,19 @@ script/source = "extends HSlider
 var bus_index: int
 
 func _ready() -> void:
-	# Finds index of Master volume, changes db when slider changes
+	# Finds index of SFX volume, changes db when slider changes
 	bus_index = AudioServer.get_bus_index(bus_name)
 	value_changed.connect(_on_value_changed)
 	
 	value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
 
 func _on_value_changed(value: float) -> void:
-	# When slider changes, sets AudioServer Master volume
+	# When slider changes, sets AudioServer SFX volume
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+
+
+func _on_master_drag_ended(value_changed):
+	pass # Replace with function body.
 "
 
 [sub_resource type="GDScript" id="GDScript_rwsj2"]
@@ -40,6 +44,10 @@ func _ready() -> void:
 func _on_value_changed(value: float) -> void:
 	# When slider changes, sets AudioServer Music volume
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+
+
+func _on_master_drag_ended(value_changed):
+	pass # Replace with function body.
 "
 
 [node name="Options_Menu" type="Control"]
@@ -117,6 +125,18 @@ theme_override_font_sizes/font_size = 40
 text = "MUSIC VOLUME"
 horizontal_alignment = 1
 
+[node name="SfxVolume" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 432.0
+offset_top = 360.0
+offset_right = 725.0
+offset_bottom = 438.0
+theme_override_fonts/font = ExtResource("2_a1wlp")
+theme_override_font_sizes/font_size = 40
+text = "SFX VOLUME"
+horizontal_alignment = 1
+
 [node name="master" type="HSlider" parent="."]
 z_index = 2
 layout_mode = 0
@@ -143,9 +163,23 @@ tick_count = 11
 script = SubResource("GDScript_rwsj2")
 bus_name = "Music"
 
+[node name="sfx" type="HSlider" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 96.0
+offset_top = 392.0
+offset_right = 1054.0
+offset_bottom = 408.0
+max_value = 1.0
+step = 0.1
+tick_count = 11
+script = SubResource("GDScript_rwsj2")
+bus_name = "SFX"
+
 [node name="OnHoverAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_60fcb")
 volume_db = 6.0
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="Back" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
