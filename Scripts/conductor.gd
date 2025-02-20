@@ -11,6 +11,8 @@ var sec_per_beat = 60.0 / bpm
 var last_reported_beat = 0
 var beats_before_start = 0
 
+signal song_over
+
 var end_screen = preload("res://Scenes/End Screen.tscn")
 
 func _ready():
@@ -62,5 +64,6 @@ func _on_StartTimer_timeout():
 
 
 func _on_finished() -> void:
+	song_over.emit()
 	var end_screen_instance = end_screen.instantiate()
 	add_child(end_screen_instance)

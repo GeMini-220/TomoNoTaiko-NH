@@ -9,8 +9,15 @@ var combo: int
 var standard_score: int
 var highest_combo: int
 
-enum Rating { BAD, OK, GOOD, PERFECT }
-var rating_count = {Rating.BAD: 0,
+enum Rating { MISS, BAD, OK, GOOD, PERFECT }
+var rating_name = {"Miss": Rating.MISS,
+					"Bad" : Rating.BAD,
+					"OK": Rating.OK,
+					"Good": Rating.GOOD,
+					"Perfect": Rating.PERFECT
+					}
+var rating_count = {Rating.MISS: 0,
+					Rating.BAD: 0,
 					Rating.OK: 0,
 					Rating.GOOD: 0,
 					Rating.PERFECT: 0
@@ -49,4 +56,4 @@ func reset_score():
 
 func reset_combo()-> void:
 	combo = 0
-	highest_combo = 0
+	rating_count[Rating.MISS] += 1
