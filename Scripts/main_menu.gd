@@ -1,6 +1,7 @@
 extends Control
 
 @onready var OnHoverAudio = $OnHoverAudio
+@onready var OnPressAudio = $OnPressAudio
 
 #Variables for implementing Song Selection
 var catalogue = Global.song_list.size()
@@ -10,8 +11,7 @@ var prev = (current - 1) % catalogue
 
 #Main Menu Implementation
 func on_pressed(): #Plays SFX when clicking button
-	Global.AudioPlayer.stream = preload("res://Assets/SFX/TNTNH Menu Button Select.wav")
-	Global.AudioPlayer.play()
+	OnPressAudio.play()
 
 func _on_play_pressed() -> void: #Hides play button and reveals song selection buttons
 	be_annoying()
@@ -44,7 +44,7 @@ func update_indexes(): #Increment/Decrement indexes, allowing for preview of pre
 	
 func be_annoying(): #Plays music for current album + click SFX
 	on_pressed()
-	await get_tree().create_timer(0.93).timeout
+	#await get_tree().create_timer(0.93).timeout
 	Global.AudioPlayer.stream = Global.song_list[current]
 	Global.AudioPlayer.play()
 
@@ -65,3 +65,8 @@ func _on_prev_pressed() -> void: #Decrements selected song and calls various fun
 	be_annoying()
 	update_indexes()
 	update_album_covers()
+
+func _ready() -> void:
+	Global.AudioPlayer.stream = preload("res://Assets/Sound Tracks/taiko_main_theme.wav")
+	Global.AudioPlayer.play()
+	Global.AudioPlayer.finished.connect(self.AudioPlayer.play())

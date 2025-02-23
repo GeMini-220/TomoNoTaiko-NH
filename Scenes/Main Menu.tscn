@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddnl2ep82hvkf"]
+[gd_scene load_steps=7 format=3 uid="uid://ddnl2ep82hvkf"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_lo4r5"]
 [ext_resource type="VideoStream" path="res://Assets/UI/Background/Main Menu.ogv" id="2_wn5y7"]
 [ext_resource type="Texture2D" uid="uid://k455i70y6g63" path="res://Assets/Album Covers/Logo-V1.2-Circle200.png" id="3_vapmw"]
 [ext_resource type="AudioStream" uid="uid://cifb3gv51fbrx" path="res://Assets/SFX/TNTNH Menu Button Hover 2.wav" id="4_5ka8l"]
 [ext_resource type="Texture2D" uid="uid://dpmvnf3ri1efl" path="res://Assets/Album Covers/damndaniel100.png" id="4_tkets"]
+[ext_resource type="AudioStream" uid="uid://dheb7d6q60e4l" path="res://Assets/SFX/TNTNH Menu Button Select.wav" id="6_bim6g"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -40,6 +41,7 @@ loop = true
 [node name="Play" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 custom_minimum_size = Vector2(150, 50)
+layout_mode = 0
 offset_left = 505.0
 offset_top = 546.0
 offset_right = 655.0
@@ -48,6 +50,7 @@ offset_bottom = 596.0
 [node name="Options" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 custom_minimum_size = Vector2(150, 50)
+layout_mode = 0
 offset_left = 182.0
 offset_top = 550.0
 offset_right = 332.0
@@ -56,6 +59,7 @@ offset_bottom = 600.0
 [node name="Quit" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 custom_minimum_size = Vector2(150, 50)
+layout_mode = 0
 offset_left = 827.0
 offset_top = 546.0
 offset_right = 977.0
@@ -64,6 +68,7 @@ offset_bottom = 596.0
 [node name="Select" type="Button" parent="."]
 visible = false
 custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
 offset_left = 476.0
 offset_top = 424.0
 offset_right = 684.0
@@ -73,6 +78,7 @@ theme_override_icons/icon = ExtResource("3_vapmw")
 [node name="Prev" type="Button" parent="."]
 visible = false
 custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
 offset_left = 352.0
 offset_top = 516.0
 offset_right = 460.0
@@ -82,6 +88,7 @@ theme_override_icons/icon = ExtResource("4_tkets")
 [node name="Next" type="Button" parent="."]
 visible = false
 custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
 offset_left = 700.0
 offset_top = 516.0
 offset_right = 808.0
@@ -90,6 +97,10 @@ theme_override_icons/icon = ExtResource("4_tkets")
 
 [node name="OnHoverAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5ka8l")
+volume_db = 6.0
+
+[node name="OnPressAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_bim6g")
 volume_db = 6.0
 
 [connection signal="mouse_entered" from="Play" to="." method="_on_mouse_entered"]
