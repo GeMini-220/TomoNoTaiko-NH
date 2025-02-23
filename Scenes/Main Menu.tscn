@@ -65,6 +65,7 @@ offset_bottom = 596.0
 [node name="OnHoverAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5ka8l")
 volume_db = 6.0
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="Play" to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
