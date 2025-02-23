@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c71s66mj6flx3"]
+[gd_scene load_steps=8 format=3 uid="uid://csuopmwctcrmc"]
 
 [ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_xrvgt"]
 [ext_resource type="FontFile" uid="uid://ngyldno8k73c" path="res://Assets/UI/Fonts/Sddystopiandemo-GO7xa.otf" id="2_a1wlp"]

@@ -4,6 +4,7 @@ extends Control
 
 func on_pressed():
 	Global.AudioPlayer.stream = preload("res://Assets/SFX/TNTNH Menu Button Select.wav")
+	Global.AudioPlayer.bus = "SFX"
 	Global.AudioPlayer.play()
 
 func _on_play_pressed() -> void:
