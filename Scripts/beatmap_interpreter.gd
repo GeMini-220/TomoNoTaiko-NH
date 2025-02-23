@@ -9,6 +9,8 @@ var current_x = 0
 var current_y = 0
 var current_beat = 0
 
+var song_is_over = false
+
 @onready var conductor = $Conductor
 @onready var score_display = $ScoreDisplay
 @onready var health_bar = $HealthBar
@@ -23,10 +25,11 @@ func _ready():
 	#Global.measure.connect(_on_Conductor_measure)
 
 func _process(delta):
-	score_display.text = str(Global.score)
-	health_bar.value = 999999 - Global.score
-	if Global.combo != 0:
-		score_display.text += "\n" + str(Global.combo) + "x Combo"
+	if not song_is_over:
+		score_display.text = str(Global.score)
+	  health_bar.value = 999999 - Global.score
+		if Global.combo != 0:
+			score_display.text += "\n" + str(Global.combo) + "x Combo"
 
 func _on_Conductor_beat(song_position_in_beats):
 	var beatmap = StaticData.beatmapData["notes"]
@@ -59,3 +62,8 @@ func spawn_note(position: Vector2):
 	note_instance.position = position
 	add_child(note_instance)
 	#print("Note spawned at position:", position)	# Debugging: Confirm position
+
+
+func _on_conductor_song_over():
+	song_is_over = true
+	score_display.text = ""
