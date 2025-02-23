@@ -191,4 +191,5 @@ position = Vector2(932, 535)
 scale = Vector2(0.302147, 0.302147)
 texture = ExtResource("34_4gqhq")
 
+[connection signal="song_over" from="Conductor" to="." method="_on_conductor_song_over"]
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]

@@ -12,13 +12,13 @@ func _process(delta):
 func _note_clicked(viewport, event, shape):
 	if event is InputEventMouseButton and event.pressed:
 		if time_elapsed >= 0.460 and time_elapsed <= 0.740: # Perfect
-			Global.add_score(Global.standard_score)
+			Global.add_score_from_rating(Global.Rating.PERFECT)
 		elif time_elapsed >= 0.300 and time_elapsed <= 1.000: # Good
-			Global.add_score(Global.standard_score / 2)
+			Global.add_score_from_rating(Global.Rating.GOOD)
 		elif time_elapsed >= 0.200 and time_elapsed <= 1.400: # Ok
-			Global.add_score(Global.standard_score / 5)
+			Global.add_score_from_rating(Global.Rating.OK)
 		else: # Bad
-			Global.add_score(0)
+			Global.add_score_from_rating(Global.Rating.BAD)
 		sprite.play("On Hit")
 
 func _on_animation_finished(): # Miss

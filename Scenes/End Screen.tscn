@@ -1,0 +1,244 @@
+[gd_scene load_steps=9 format=3 uid="uid://fpbfoew2gcev"]
+
+[ext_resource type="Script" path="res://Scripts/end_screen.gd" id="1_823mm"]
+[ext_resource type="FontFile" uid="uid://ngyldno8k73c" path="res://Assets/UI/Fonts/Sddystopiandemo-GO7xa.otf" id="1_f18vb"]
+[ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="2_23vij"]
+[ext_resource type="Texture2D" uid="uid://lkegfs5yxhfr" path="res://Assets/UI/Background/Mask.png" id="3_exj1j"]
+
+[sub_resource type="Theme" id="Theme_8ntfr"]
+default_font = ExtResource("1_f18vb")
+default_font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa0ms"]
+bg_color = Color(0.215902, 0.215902, 0.215902, 0.517647)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.239216, 0.8, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 314
+corner_radius_top_right = 314
+corner_radius_bottom_right = 314
+corner_radius_bottom_left = 314
+corner_detail = 20
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p23m3"]
+bg_color = Color(0.211765, 0.356863, 0.415686, 0.556863)
+skew = Vector2(0.2, 0.1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.352941, 0.8, 0.8, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_ne5ed"]
+default_font = ExtResource("1_f18vb")
+Panel/styles/panel = SubResource("StyleBoxFlat_p23m3")
+
+[node name="End Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8ntfr")
+script = ExtResource("1_823mm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_exj1j")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 439.0
+offset_top = -70.0
+offset_right = 514.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_23vij")
+theme_override_font_sizes/font_size = 20
+text = "Back"
+
+[node name="Result" type="Panel" parent="."]
+custom_minimum_size = Vector2(628, 628)
+layout_mode = 2
+offset_left = -119.0
+offset_top = 107.0
+offset_right = 509.0
+offset_bottom = 735.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xa0ms")
+
+[node name="Grade" type="Label" parent="Result"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.697326, 0.621458, 0.391352, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 314
+text = "S"
+horizontal_alignment = 1
+
+[node name="Sync" type="Label" parent="Result"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 65.5
+offset_right = 184.0
+offset_bottom = 142.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_23vij")
+theme_override_font_sizes/font_size = 32
+text = "Fully Synchronised!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Stats" type="Panel" parent="."]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+offset_left = 550.0
+offset_top = 197.0
+offset_right = 1090.0
+offset_bottom = 517.0
+theme = SubResource("Theme_ne5ed")
+
+[node name="Damage" type="Label" parent="Stats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -100.0
+offset_right = -120.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0959931
+text = "Damage"
+
+[node name="Score" type="Label" parent="Stats/Damage"]
+layout_mode = 0
+offset_left = -2.97119
+offset_top = 30.8573
+offset_right = 342.029
+offset_bottom = 67.8573
+theme_override_fonts/font = ExtResource("2_23vij")
+text = "99999999999"
+
+[node name="Max Combo" type="Label" parent="Stats"]
+layout_mode = 2
+anchor_left = 0.0444444
+anchor_top = 0.00625
+anchor_right = 0.0444444
+anchor_bottom = 0.00625
+offset_top = 148.0
+offset_right = 163.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0959931
+text = "Max Combo"
+metadata/_edit_use_anchors_ = true
+
+[node name="Combo" type="Label" parent="Stats/Max Combo"]
+layout_mode = 0
+offset_left = -3.06708
+offset_top = 31.8527
+offset_right = 36.9329
+offset_bottom = 55.8527
+theme_override_fonts/font = ExtResource("2_23vij")
+text = "69x"
+
+[node name="Ratings" type="Label" parent="Stats"]
+layout_mode = 2
+anchor_left = 0.0166667
+anchor_top = 0.26875
+anchor_right = 0.0166667
+anchor_bottom = 0.26875
+offset_top = 138.0
+offset_right = 491.0
+offset_bottom = 182.0
+rotation = -0.0959931
+text = "Perfect / Good / OK / Bad / Miss"
+metadata/_edit_use_anchors_ = true
+
+[node name="Perfect" type="Label" parent="Stats/Ratings"]
+layout_mode = 0
+offset_left = 37.9728
+offset_top = 43.8414
+offset_right = 77.9728
+offset_bottom = 80.8414
+theme_override_fonts/font = ExtResource("2_23vij")
+text = "1"
+horizontal_alignment = 1
+
+[node name="Good" type="Label" parent="Stats/Ratings"]
+layout_mode = 0
+offset_left = 169.424
+offset_top = 45.4478
+offset_right = 209.424
+offset_bottom = 82.4478
+theme_override_fonts/font = ExtResource("2_23vij")
+text = "1"
+horizontal_alignment = 1
+
+[node name="OK" type="Label" parent="Stats/Ratings"]
+layout_mode = 0
+offset_left = 254.895
+offset_top = 44.6361
+offset_right = 294.895
+offset_bottom = 81.6361
+theme_override_fonts/font = ExtResource("2_23vij")
+text = "1"
+horizontal_alignment = 1
+
+[node name="Bad" type="Label" parent="Stats/Ratings"]
+layout_mode = 0
+offset_left = 339.371
+offset_top = 43.7285
+offset_right = 379.371
+offset_bottom = 80.7285
+theme_override_fonts/font = ExtResource("2_23vij")
+text = "1"
+horizontal_alignment = 1
+
+[node name="Miss" type="Label" parent="Stats/Ratings"]
+layout_mode = 0
+offset_left = 429.628
+offset_top = 45.387
+offset_right = 469.628
+offset_bottom = 82.387
+theme_override_fonts/font = ExtResource("2_23vij")
+text = "1"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
