@@ -47,6 +47,7 @@ func be_annoying(): #Plays music for current album + click SFX
 	#await get_tree().create_timer(0.93).timeout
 	Global.AudioPlayer.stream = Global.song_list[current]
 	Global.AudioPlayer.play()
+	Global.AudioPlayer.finished.connect(self.repeat)
 
 #Song Selection Button Inputs
 func _on_select_pressed() -> void: #Switches to scene: Level 1
@@ -69,4 +70,7 @@ func _on_prev_pressed() -> void: #Decrements selected song and calls various fun
 func _ready() -> void:
 	Global.AudioPlayer.stream = preload("res://Assets/Sound Tracks/taiko_main_theme.wav")
 	Global.AudioPlayer.play()
-	Global.AudioPlayer.finished.connect(self.AudioPlayer.play())
+	Global.AudioPlayer.finished.connect(self.repeat)
+	
+func repeat() -> void:
+	Global.AudioPlayer.play()
