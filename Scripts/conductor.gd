@@ -16,6 +16,7 @@ signal song_over
 var end_screen = preload("res://Scenes/End Screen.tscn")
 
 func _ready():
+	stream = Global.song_list[Global.song_index] #Changes song according to global index set in Main Menu
 	sec_per_beat = 60.0 / bpm
 
 func _physics_process(_delta):
