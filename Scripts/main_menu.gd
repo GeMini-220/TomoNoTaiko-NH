@@ -1,7 +1,6 @@
 extends Control
 
 @onready var OnHoverAudio = $OnHoverAudio
-@onready var OnPressAudio = $OnPressAudio
 
 #Variables for implementing Song Selection
 var catalogue = Global.song_list.size()
@@ -10,8 +9,10 @@ var next = (current + 1) % catalogue
 var prev = (current - 1) % catalogue
 
 #Main Menu Implementation
-func on_pressed(): #Plays SFX when clicking button
-	OnPressAudio.play()
+func on_pressed():
+	Global.AudioPlayer.stream = preload("res://Assets/SFX/TNTNH Menu Button Select.wav")
+	Global.AudioPlayer.bus = "SFX"
+	Global.AudioPlayer.play()
 
 func _on_play_pressed() -> void: #Hides play button and reveals song selection buttons
 	be_annoying()
@@ -45,14 +46,15 @@ func update_indexes(): #Increment/Decrement indexes, allowing for preview of pre
 func be_annoying(): #Plays music for current album + click SFX
 	on_pressed()
 	#await get_tree().create_timer(0.93).timeout
-	Global.AudioPlayer.stream = Global.song_list[current]
-	Global.AudioPlayer.play()
-	Global.AudioPlayer.finished.connect(self.repeat)
+	Global.AudioPlayerMusic.stream = Global.song_list[current]
+	Global.AudioPlayerMusic.play()
+	Global.AudioPlayerMusic.finished.connect(self.repeat)
 
 #Song Selection Button Inputs
 func _on_select_pressed() -> void: #Switches to scene: Level 1
 	on_pressed()
 	Global.song_index = current
+	Global.AudioPlayerMusic.stop()
 	get_tree().change_scene_to_file("res://Scenes/Level 1.tscn")
 
 func _on_next_pressed() -> void: #Increments selected song and calls various functions
@@ -68,9 +70,9 @@ func _on_prev_pressed() -> void: #Decrements selected song and calls various fun
 	update_album_covers()
 
 func _ready() -> void:
-	Global.AudioPlayer.stream = preload("res://Assets/Sound Tracks/taiko_main_theme.wav")
-	Global.AudioPlayer.play()
-	Global.AudioPlayer.finished.connect(self.repeat)
+	Global.AudioPlayerMusic.stream = preload("res://Assets/Sound Tracks/taiko_main_theme.wav")
+	Global.AudioPlayerMusic.play()
+	Global.AudioPlayerMusic.finished.connect(self.repeat)
 	
 func repeat() -> void:
-	Global.AudioPlayer.play()
+	Global.AudioPlayerMusic.play()

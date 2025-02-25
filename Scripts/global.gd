@@ -24,11 +24,12 @@ var cover_list_100 = [
 	preload("res://Assets/Album Covers/damndaniel100.png")
 ]
 
-
+@onready var AudioPlayerMusic: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var AudioPlayer: AudioStreamPlayer = AudioStreamPlayer.new()
 
 func _ready():
 	add_child(AudioPlayer)
+	add_child(AudioPlayerMusic)
 
 func add_score(points: int):
 	score += points
