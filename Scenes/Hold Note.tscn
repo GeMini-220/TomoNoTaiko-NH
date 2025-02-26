@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://buj5bd4xhef8o"]
+[gd_scene load_steps=98 format=3 uid="uid://buj5bd4xhef8o"]
 
 [ext_resource type="Script" path="res://Scripts/hold_note.gd" id="1_fs4yy"]
 [ext_resource type="Texture2D" uid="uid://bkxxu42ew12uw" path="res://Assets/UI/Notes/Basic Note v2/BasicNote00.png" id="2_moqqw"]
@@ -93,6 +93,8 @@
 [ext_resource type="Texture2D" uid="uid://byf4t4lec71ip" path="res://Assets/UI/Notes/On Hit/onhit-compressed_133.png" id="91_e1vmv"]
 [ext_resource type="Texture2D" uid="uid://dperv7j5mtj5d" path="res://Assets/UI/Notes/On Hit/onhit-compressed_134.png" id="92_q41i2"]
 [ext_resource type="Texture2D" uid="uid://bsp6ls0ccmtf5" path="res://Assets/UI/Notes/On Hit/onhit-compressed_135.png" id="93_wts3f"]
+[ext_resource type="Texture2D" uid="uid://djw6i61lmqr8s" path="res://Assets/UI/Notes/Hold/Empty.png" id="94_fw3f4"]
+[ext_resource type="Texture2D" uid="uid://7yvjpatwx15a" path="res://Assets/UI/Notes/Hold/Full.png" id="95_qr812"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_15s0f"]
 radius = 30.0206
@@ -396,10 +398,29 @@ scale = Vector2(0.9, 0.9)
 shape = SubResource("CircleShape2D_15s0f")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ggqq4")
 animation = &"Idle"
 autoplay = "Idle"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -108.0
+offset_right = 612.0
+offset_bottom = 612.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+fill_mode = 4
+texture_under = ExtResource("94_fw3f4")
+texture_progress = ExtResource("95_qr812")
 
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

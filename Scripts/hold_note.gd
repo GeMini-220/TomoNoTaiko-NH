@@ -3,11 +3,11 @@ extends Node2D
 var time_elapsed : float = 0.0
 var held : bool = false
 var hold_time : float = 0.0
-enum Rating {BAD = 0, OK = 1, GOOD = 2, PERFECT = 3} # TODO: maybe implement this elsewhere so that other scenes can use it
-var click_rating := Rating.BAD
-var hold_rating := Rating.BAD
+var click_rating := Global.Rating.BAD
+var hold_rating := Global.Rating.BAD
 @export var duration : float = 1.0 # in seconds
 @onready var sprite = $Sprite
+@onready var progress = $TextureProgressBar
 
 func _ready():
 	$Area2D.connect("input_event", _note_clicked)
@@ -16,9 +16,10 @@ func _process(delta):
 	time_elapsed += delta
 	if held: # while the note is held, record time held
 		hold_time += delta
+		progress.value = 100 * hold_time / duration
 		# if the note was held for the full duration, hold_rating is perfect
 		if hold_time > duration:
-			hold_rating = Rating.PERFECT
+			hold_rating = Global.Rating.PERFECT
 			note_end()
 
 func _note_clicked(viewport, event, shape):
@@ -27,6 +28,7 @@ func _note_clicked(viewport, event, shape):
 		held = true # start recording how long the note is held
 		sprite.play("On Hit")
 		sprite.pause() # pauses the animation so that the note stays while it's held
+		progress.visible = true
 	elif event is InputEventMouseButton and not event.pressed:
 		# if the note was being held but no longer is, evaluate hold_rating
 		if held:
@@ -41,28 +43,28 @@ func _on_area_2d_mouse_exited():
 
 func evaluate_click_rating():
 	if time_elapsed >= 0.460 and time_elapsed <= 0.740:
-		click_rating = Rating.PERFECT
+		click_rating = Global.Rating.PERFECT
 	elif time_elapsed >= 0.300 and time_elapsed <= 1.000:
-		click_rating = Rating.GOOD
+		click_rating = Global.Rating.GOOD
 	elif time_elapsed >= 0.200 and time_elapsed <= 1.400:
-		click_rating = Rating.OK
+		click_rating = Global.Rating.OK
 	else:
-		click_rating = Rating.BAD
+		click_rating = Global.Rating.BAD
 
 func evaluate_hold_rating():
 	var ratio = hold_time / duration
 	if ratio >= 0.95:
-		hold_rating = Rating.PERFECT
+		hold_rating = Global.Rating.PERFECT
 	elif ratio >= 0.8:
-		hold_rating = Rating.GOOD
+		hold_rating = Global.Rating.GOOD
 	elif ratio >= 0.5:
-		hold_rating = Rating.OK
+		hold_rating = Global.Rating.OK
 	else:
-		hold_rating = Rating.BAD
+		hold_rating = Global.Rating.BAD
 
 func note_end():
 	var overall_rating = min(click_rating, hold_rating)
-	add_score_from_rating(overall_rating)
+	Global.add_score_from_rating(overall_rating)
 	
 	held = false # stop recording how long the note is held
 	sprite.play() # finish the "on hit" animation
@@ -71,17 +73,6 @@ func note_end():
 	#print("Click rating: " + str(click_rating))
 	#print("Hold rating: " + str(hold_rating))
 	#print("Overall rating: " + str(overall_rating))
-
-func add_score_from_rating(rating):
-	match rating:
-		Rating.PERFECT:
-			Global.add_score(Global.standard_score)
-		Rating.GOOD:
-			Global.add_score(Global.standard_score / 2)
-		Rating.OK:
-			Global.add_score(Global.standard_score / 5)
-		Rating.BAD:
-			Global.add_score(0)
 
 func _on_sprite_animation_finished(): # Miss
 	if sprite.animation == "Idle":
