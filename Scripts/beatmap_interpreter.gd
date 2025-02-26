@@ -78,7 +78,7 @@ func spawn_hold_note(position: Vector2, duration: float):
 	hold_note_instance.get_node("Sprite").speed_scale = fps / 20 # 20 is default fps
 
 	hold_note_instance.position = position
-	hold_note_instance.hold_time = duration
+	hold_note_instance.duration = duration
 	add_child(hold_note_instance)
 	
 
