@@ -125,7 +125,7 @@ animations = [{
 script = ExtResource("1_36v4f")
 
 [node name="Conductor" parent="." instance=ExtResource("2_k7nr0")]
-bpm = 528
+bpm = 524
 
 [node name="Timer" type="Timer" parent="Conductor"]
 one_shot = true
