@@ -422,5 +422,6 @@ fill_mode = 4
 texture_under = ExtResource("94_fw3f4")
 texture_progress = ExtResource("95_qr812")
 
+[connection signal="input_event" from="Area2D" to="." method="_note_clicked"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

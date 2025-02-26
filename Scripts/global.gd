@@ -53,7 +53,6 @@ func add_score(points: int):
 	#print("Current Score: ", score, " | Combo: x", combo)
 
 func add_score_from_rating(rating: int):
-	var adjusted_score
 	match rating:
 		Rating.PERFECT:
 			add_score(standard_score)
