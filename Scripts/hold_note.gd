@@ -62,7 +62,7 @@ func evaluate_hold_rating():
 
 func note_end():
 	var overall_rating = min(click_rating, hold_rating)
-	add_score_from_rating(overall_rating)
+	Global.hit(overall_rating, position)
 	
 	held = false # stop recording how long the note is held
 	sprite.play() # finish the "on hit" animation
@@ -71,19 +71,9 @@ func note_end():
 	#print("Click rating: " + str(click_rating))
 	#print("Hold rating: " + str(hold_rating))
 	#print("Overall rating: " + str(overall_rating))
-
-func add_score_from_rating(rating):
-	match rating:
-		Rating.PERFECT:
-			Global.add_score(Global.standard_score)
-		Rating.GOOD:
-			Global.add_score(Global.standard_score / 2)
-		Rating.OK:
-			Global.add_score(Global.standard_score / 5)
-		Rating.BAD:
-			Global.add_score(0)
+	
 
 func _on_sprite_animation_finished(): # Miss
 	if sprite.animation == "Idle":
-		Global.reset_combo()
+		Global.miss(position)
 	queue_free()

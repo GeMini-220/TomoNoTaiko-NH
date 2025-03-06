@@ -1,6 +1,6 @@
 [gd_scene load_steps=96 format=3 uid="uid://buj5bd4xhef8o"]
 
-[ext_resource type="Script" path="res://Scripts/hold_note.gd" id="1_fs4yy"]
+[ext_resource type="Script" uid="uid://cjk5157qr70cx" path="res://Scripts/hold_note.gd" id="1_fs4yy"]
 [ext_resource type="Texture2D" uid="uid://bkxxu42ew12uw" path="res://Assets/UI/Notes/Basic Note v2/BasicNote00.png" id="2_moqqw"]
 [ext_resource type="Texture2D" uid="uid://cvllgtnfy8v" path="res://Assets/UI/Notes/Basic Note v2/BasicNote01.png" id="3_p5e4x"]
 [ext_resource type="Texture2D" uid="uid://d2qa8ujv1j8a" path="res://Assets/UI/Notes/Basic Note v2/BasicNote02.png" id="4_nwjxp"]
@@ -398,7 +398,7 @@ shape = SubResource("CircleShape2D_15s0f")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ggqq4")
-animation = &"Idle"
+animation = &"On Hit"
 autoplay = "Idle"
 
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
