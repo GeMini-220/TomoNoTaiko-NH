@@ -22,7 +22,7 @@ func _note_clicked(viewport, event, shape):
 		else: # Bad
 			rating = Global.Rating.BAD
 		sprite.play("On Hit")
-		Global.hit(rating, position)
+		Global.hit(rating)
 
 func _on_animation_finished(): # Miss
 	if sprite.animation == "Idle":

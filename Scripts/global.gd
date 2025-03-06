@@ -65,14 +65,14 @@ func add_score_from_rating(rating: int) -> void:
 			add_score(0)
 	rating_count[rating] += 1
 
-func create_rating_visual(rating: int, note_pos: Vector2) -> void:
+func create_rating_visual(rating: int, visual_pos: Vector2) -> void:
 	var rv = rate_visual.instantiate()
 	get_tree().root.add_child(rv)
-	rv.set_rating(rating, note_pos)
+	rv.set_rating(rating, visual_pos)
 
-func hit(rating: int, note_pos: Vector2) -> void:
+func hit(rating: int) -> void:
 	add_score_from_rating(rating)
-	create_rating_visual(rating, note_pos)
+	create_rating_visual(rating, get_global_mouse_position())
 
 func miss(note_pos: Vector2) -> void:
 	add_score_from_rating(Rating.MISS)

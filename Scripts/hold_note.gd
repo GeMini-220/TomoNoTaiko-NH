@@ -62,7 +62,7 @@ func evaluate_hold_rating():
 
 func note_end():
 	var overall_rating = min(click_rating, hold_rating)
-	Global.hit(overall_rating, position)
+	Global.hit(overall_rating)
 	
 	held = false # stop recording how long the note is held
 	sprite.play() # finish the "on hit" animation
