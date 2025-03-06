@@ -418,6 +418,7 @@ offset_bottom = 612.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.3, 0.3)
+mouse_filter = 2
 fill_mode = 4
 texture_under = ExtResource("94_fw3f4")
 texture_progress = ExtResource("95_qr812")
