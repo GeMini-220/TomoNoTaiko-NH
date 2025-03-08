@@ -55,7 +55,7 @@ func _on_Conductor_measure(song_position_in_measure):
 
 
 func spawn_note(position: Vector2):
-	var note_instance = HoldNoteScene.instantiate()
+	var note_instance = BasicNoteScene.instantiate()
 
 	var fps = very_perfect_frame / time_before_very_perfect # the 31st frame should be on beat
 	note_instance.get_node("Sprite").speed_scale = fps / 20 # 20 is default fps
