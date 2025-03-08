@@ -9,16 +9,16 @@ var hold_rating := Global.Rating.BAD
 @onready var sprite = $Sprite
 @onready var progress = $TextureProgressBar
 
-func _ready():
-	$Area2D.connect("input_event", _note_clicked)
+const degrees_per_second = -720.0
 
 func _process(delta):
 	time_elapsed += delta
 	if held: # while the note is held, record time held
 		hold_time += delta
 		progress.value = 100 * hold_time / duration
+		sprite.rotate(delta * deg_to_rad(degrees_per_second * hold_time / duration))
 		# if the note was held for the full duration, hold_rating is perfect
-		if hold_time > duration:
+		if hold_time >= duration:
 			hold_rating = Global.Rating.PERFECT
 			note_end()
 
@@ -26,7 +26,7 @@ func _note_clicked(viewport, event, shape):
 	if event is InputEventMouseButton and event.pressed:
 		evaluate_click_rating()
 		held = true # start recording how long the note is held
-		sprite.play("On Hit")
+		sprite.play("On Hold")
 		sprite.pause() # pauses the animation so that the note stays while it's held
 		progress.visible = true
 	elif event is InputEventMouseButton and not event.pressed:
@@ -67,6 +67,8 @@ func note_end():
 	Global.add_score_from_rating(overall_rating)
 	
 	held = false # stop recording how long the note is held
+	progress.visible = false
+	sprite.rotation = 0
 	sprite.play() # finish the "on hit" animation
 	
 	# debugging
