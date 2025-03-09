@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	time_elapsed += delta
 
-func _note_clicked(viewport, event, shape):
+func _note_clicked(_viewport, event, _shape):
 	if event is InputEventMouseButton and event.pressed:
 		var rating
 		if time_elapsed >= 0.460 and time_elapsed <= 0.740: # Perfect
