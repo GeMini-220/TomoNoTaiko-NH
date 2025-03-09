@@ -55,7 +55,8 @@ func _on_select_pressed() -> void: #Switches to scene: Level 1
 	on_pressed()
 	Global.song_index = current
 	Global.AudioPlayerMusic.stop()
-	get_tree().change_scene_to_file("res://Scenes/Level 1.tscn")
+	var level_path = Global.level_scenes[current]
+	get_tree().change_scene_to_file(level_path)
 
 func _on_next_pressed() -> void: #Increments selected song and calls various functions
 	current = next

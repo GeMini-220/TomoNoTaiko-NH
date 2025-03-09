@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bejoc4r7t4bme"]
+[gd_scene load_steps=41 format=3 uid="uid://bejoc4r7t4bme"]
 
 [ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_sbioy"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_av52p"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://u061l6aerlhj" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_20_delay-0.09s.png" id="33_jvx6s"]
 [ext_resource type="Texture2D" uid="uid://lkegfs5yxhfr" path="res://Assets/UI/Background/Mask.png" id="33_sr6d1"]
 [ext_resource type="Texture2D" uid="uid://dk4v45vo0bvyu" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_21_delay-0.08s.png" id="34_6bgm6"]
+[ext_resource type="Script" path="res://Scenes/player.gd" id="35_41hg2"]
 [ext_resource type="Texture2D" uid="uid://ca6a84bdxor6k" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_22_delay-0.08s.png" id="35_krwro"]
 [ext_resource type="Texture2D" uid="uid://ciieufhsmb386" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_23_delay-0.09s.png" id="36_8txrl"]
 [ext_resource type="Texture2D" uid="uid://b80vl1p3s5qpv" path="res://Assets/UI/Level 2/Player/gyaru_idle.png" id="36_8ykw8"]
@@ -223,16 +224,19 @@ autoplay = "level 2 boss"
 frame = 15
 frame_progress = 0.218016
 
-[node name="Player" type="AnimatedSprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("35_41hg2")
+
+[node name="Player" type="AnimatedSprite2D" parent="Node2D"]
 position = Vector2(525, 435)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_k2c3j")
 animation = &"hit_right"
 autoplay = "idle"
 
-[node name="Timer" type="Timer" parent="Player"]
+[node name="Timer" type="Timer" parent="Node2D/Player"]
 one_shot = true
 
 [connection signal="song_over" from="Conductor" to="." method="_on_conductor_song_over"]
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
-[connection signal="timeout" from="Player/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Node2D/Player/Timer" to="." method="_on_timer_timeout"]
