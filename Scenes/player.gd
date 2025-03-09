@@ -4,7 +4,7 @@ var last_hit = false
 
 @onready var player = $Player  # Reference to the Player AnimatedSprite2D
 @onready var timer = $Player/Timer # Reference to the Timer node under Player
-
+@onready var taiko = $Taiko/AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.note_hit.connect(change_pose)
@@ -21,7 +21,8 @@ func change_pose():
 	else:
 		player.play("hit_right")
 	last_hit = !last_hit
-		
+	taiko.stop()
+	taiko.play("taiko_vibration")	
 	timer.start(1)
 		
 # return to idle pose

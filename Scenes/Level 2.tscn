@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bejoc4r7t4bme"]
+[gd_scene load_steps=44 format=3 uid="uid://bejoc4r7t4bme"]
 
 [ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_sbioy"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_av52p"]
@@ -151,6 +151,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_v1l34"]
+resource_name = "taiko_vibration"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Taiko:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333, 0.166667, 0.233333, 0.266667, 0.333333, 0.366667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(367.14, 424.265), Vector2(333.155, 424.265), Vector2(367.669, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(367.14, 424.265)]
+}
+
+[sub_resource type="Animation" id="Animation_j46b3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Taiko:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(367.14, 424.265)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a887h"]
+_data = {
+"RESET": SubResource("Animation_j46b3"),
+"taiko_vibration": SubResource("Animation_v1l34")
+}
+
 [node name="beatmape interpreter test scene" type="Node2D"]
 script = ExtResource("1_sbioy")
 
@@ -208,12 +245,6 @@ scale = Vector2(0.31, 0.31)
 texture = ExtResource("33_sr6d1")
 flip_v = true
 
-[node name="Taiko" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(367.14, 424.265)
-scale = Vector2(0.152, 0.152)
-texture = ExtResource("10_o25p0")
-
 [node name="Boss" type="AnimatedSprite2D" parent="."]
 z_index = -2
 position = Vector2(662, 254.735)
@@ -236,6 +267,18 @@ autoplay = "idle"
 
 [node name="Timer" type="Timer" parent="Node2D/Player"]
 one_shot = true
+
+[node name="Taiko" type="Sprite2D" parent="Node2D"]
+z_index = -1
+position = Vector2(367.14, 424.265)
+scale = Vector2(0.152, 0.152)
+texture = ExtResource("10_o25p0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Taiko"]
+root_node = NodePath("../../Player")
+libraries = {
+"": SubResource("AnimationLibrary_a887h")
+}
 
 [connection signal="song_over" from="Conductor" to="." method="_on_conductor_song_over"]
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
