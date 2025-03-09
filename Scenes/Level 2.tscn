@@ -210,13 +210,13 @@ flip_v = true
 
 [node name="Taiko" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(338, 399)
-scale = Vector2(0.202, 0.202)
+position = Vector2(367.14, 424.265)
+scale = Vector2(0.152, 0.152)
 texture = ExtResource("10_o25p0")
 
 [node name="Boss" type="AnimatedSprite2D" parent="."]
 z_index = -2
-position = Vector2(662, 237)
+position = Vector2(662, 254.735)
 scale = Vector2(0.85, 0.85)
 sprite_frames = SubResource("SpriteFrames_aaxy0")
 animation = &"level 2 boss"
@@ -228,10 +228,10 @@ frame_progress = 0.218016
 script = ExtResource("35_41hg2")
 
 [node name="Player" type="AnimatedSprite2D" parent="Node2D"]
-position = Vector2(525, 435)
-scale = Vector2(0.25, 0.25)
+position = Vector2(525, 456.575)
+scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_k2c3j")
-animation = &"hit_right"
+animation = &"hit_left"
 autoplay = "idle"
 
 [node name="Timer" type="Timer" parent="Node2D/Player"]
