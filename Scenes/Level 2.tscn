@@ -239,4 +239,4 @@ one_shot = true
 
 [connection signal="song_over" from="Conductor" to="." method="_on_conductor_song_over"]
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
-[connection signal="timeout" from="Node2D/Player/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Node2D/Player/Timer" to="Node2D" method="_on_timer_timeout"]

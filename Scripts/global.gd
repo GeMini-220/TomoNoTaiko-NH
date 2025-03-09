@@ -2,6 +2,7 @@ extends Node2D
 
 signal beat(position)
 signal measure(position)
+signal note_hit
 
 #Global score and combo
 var score: int
@@ -73,6 +74,7 @@ func add_score_from_rating(rating: int) -> void:
 	
 func hit(rating: int) -> void:
 	add_score_from_rating(rating)
+	note_hit.emit()
 	#create_rating_visual(rating, get_global_mouse_position())
 
 func miss(note_pos: Vector2) -> void:
@@ -89,3 +91,7 @@ func reset_score():
 func reset_combo()-> void:
 	combo = 0
 	
+
+
+func _on_note_hit():
+	pass # Replace with function body.

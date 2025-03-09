@@ -7,22 +7,22 @@ var last_hit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Global.note_hit.connect(change_pose)
+
 
 func _process(delta):
 	pass
 	
 # change poses on mouse mouse click
-func _input(event):
-	if event is InputEventMouseButton and event.pressed:
+func change_pose():
 		
-		if last_hit:
-			player.play("hit_left")
-		else:
-			player.play("hit_right")
-		last_hit = !last_hit
+	if last_hit:
+		player.play("hit_left")
+	else:
+		player.play("hit_right")
+	last_hit = !last_hit
 		
-		timer.start(1)
+	timer.start(1)
 		
 # return to idle pose
 func _on_timer_timeout():
