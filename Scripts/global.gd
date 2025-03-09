@@ -37,6 +37,13 @@ var cover_list_100 = [
 	preload("res://Assets/Album Covers/Logo-V1.2-Circle100.png"),
 	preload("res://Assets/Album Covers/damndaniel100.png")
 ]
+var note_sfx_list = [
+	preload("res://Assets/SFX/Oodaiko-1.wav"),
+	preload("res://Assets/SFX/Oodaiko-2.wav"),
+	preload("res://Assets/SFX/Oodaiko-3.wav"),
+	preload("res://Assets/SFX/Oodaiko-4.wav"),
+	preload("res://Assets/SFX/Shimedaiko-1.wav")
+]
 
 @onready var AudioPlayerMusic: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var AudioPlayer: AudioStreamPlayer = AudioStreamPlayer.new()

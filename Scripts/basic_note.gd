@@ -5,12 +5,16 @@ var time_elapsed : float = 0.0
 
 func _ready():
 	$Area2D.connect("input_event", _note_clicked)
+	Global.AudioPlayer.bus = "SFX"
+	Global.AudioPlayer.stream = Global.note_sfx_list[0]
+	
 
 func _process(delta):
 	time_elapsed += delta
 
 func _note_clicked(viewport, event, shape):
 	if event is InputEventMouseButton and event.pressed:
+		Global.AudioPlayer.play()
 		if time_elapsed >= 0.460 and time_elapsed <= 0.740: # Perfect
 			Global.add_score_from_rating(Global.Rating.PERFECT)
 		elif time_elapsed >= 0.300 and time_elapsed <= 1.000: # Good
