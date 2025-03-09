@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://devx58t3832kd"
+path="res://.godot/imported/cyber-gorgon_180_v1.mp3-8303917609b302f4fb97b6b57b183d20.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Tracks/cyber-gorgon_180_v1.mp3"
+dest_files=["res://.godot/imported/cyber-gorgon_180_v1.mp3-8303917609b302f4fb97b6b57b183d20.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -65,7 +65,7 @@ func evaluate_hold_rating():
 
 func note_end():
 	var overall_rating = min(click_rating, hold_rating)
-	Global.add_score_from_rating(overall_rating)
+	Global.hit(overall_rating)
 	
 	note_held = false # stop recording how long the note is held
 	progress.visible = false
@@ -80,5 +80,5 @@ func note_end():
 
 func _on_sprite_animation_finished(): # Miss
 	if sprite.animation == "Idle":
-		Global.reset_combo()
+		Global.miss(position)
 	queue_free()

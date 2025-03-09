@@ -17,6 +17,7 @@ var song_is_over = false
 @onready var score_display = $ScoreDisplay
 @onready var health_bar = $HealthBar
 
+
 func _ready():
 	Global.score = 0
 	Global.combo = 0
@@ -32,7 +33,8 @@ func _process(delta):
 		health_bar.value = 999999 - Global.score
 		if Global.combo != 0:
 			score_display.text += "\n" + str(Global.combo) + "x Combo"
-
+			
+		
 func _on_Conductor_beat(song_position_in_beats):
 	var beatmap = StaticData.beatmapData["notes"]
 	#print("Loaded beatmap:", beatmap)	# debugging: confirm beatmap data loaded correctly
