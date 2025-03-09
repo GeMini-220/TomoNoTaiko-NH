@@ -9,6 +9,7 @@ var very_perfect_frame = 30 # 31 is the perfect frame
 var current_x = 0
 var current_y = 0
 var current_beat = 0
+var current_type
 
 var song_is_over = false
 
@@ -36,15 +37,21 @@ func _on_Conductor_beat(song_position_in_beats):
 	var beatmap = StaticData.beatmapData["notes"]
 	#print("Loaded beatmap:", beatmap)	# debugging: confirm beatmap data loaded correctly
 	for note in beatmap:
-		current_x = note["x"] #/ 9 * 16 * 0.8
-		current_y = note["y"] #/ 16 * 9 * 0.8 #Temporary Solution; TODO: Fix beatmap generating location
+		current_x = note["location"][0] #/ 9 * 16 * 0.8
+		current_y = note["location"][1] #/ 16 * 9 * 0.8 #Temporary Solution; TODO: Fix beatmap generating location
 		current_beat = note["beat"]
-
+		current_type = note.get("type", "basic")	# default to basic note
+		
 		if current_beat == song_position_in_beats:
 			var timer = Timer.new()
 			timer.wait_time = conductor.sec_per_beat * beat_offset - time_before_very_perfect # delay for 2 beats - 300ms before spawn
 			timer.one_shot = true
-			timer.connect("timeout", Callable(self.spawn_note).bind(Vector2(current_x,current_y)))
+			if current_type == "hold":
+				var duration = note["duration"]
+				timer.connect("timeout", Callable(self.spawn_hold_note).bind(Vector2(current_x,current_y), duration))
+			else:
+				timer.connect("timeout", Callable(self.spawn_note).bind(Vector2(current_x,current_y)))
+				
 			add_child(timer)
 			timer.start()
 			#print("Current beat:", current_beat, "\nSong Position:", song_position_in_beats)
@@ -64,6 +71,16 @@ func spawn_note(position: Vector2):
 	add_child(note_instance)
 	#print("Note spawned at position:", position)	# Debugging: Confirm position
 
+
+func spawn_hold_note(position: Vector2, duration: float):
+	var hold_note_instance = HoldNoteScene.instantiate()
+	var fps = very_perfect_frame / time_before_very_perfect # the 31st frame should be on beat
+	hold_note_instance.get_node("Sprite").speed_scale = fps / 20 # 20 is default fps
+
+	hold_note_instance.position = position
+	hold_note_instance.duration = duration
+	add_child(hold_note_instance)
+	
 
 func _on_conductor_song_over():
 	song_is_over = true
