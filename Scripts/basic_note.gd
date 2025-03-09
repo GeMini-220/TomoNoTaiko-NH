@@ -3,6 +3,7 @@ extends Node2D
 var time_elapsed : float = 0.0
 @onready var sprite = $Sprite
 
+
 func _ready():
 	$Area2D.connect("input_event", _note_clicked)
 
@@ -20,7 +21,8 @@ func _note_clicked(viewport, event, shape):
 		else: # Bad
 			Global.add_score_from_rating(Global.Rating.BAD)
 		sprite.play("On Hit")
-
+	
+	
 func _on_animation_finished(): # Miss
 	if sprite.animation == "Idle":
 		Global.reset_combo()

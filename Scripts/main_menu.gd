@@ -68,7 +68,7 @@ func _on_prev_pressed() -> void: #Decrements selected song and calls various fun
 	be_annoying()
 	update_indexes()
 	update_album_covers()
-
+	
 func _ready() -> void:
 	Global.AudioPlayerMusic.stream = preload("res://Assets/Sound Tracks/taiko_main_theme.wav")
 	Global.AudioPlayerMusic.play()

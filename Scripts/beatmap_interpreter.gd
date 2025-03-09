@@ -11,10 +11,15 @@ var current_y = 0
 var current_beat = 0
 
 var song_is_over = false
+var last_hit = false
 
 @onready var conductor = $Conductor
 @onready var score_display = $ScoreDisplay
 @onready var health_bar = $HealthBar
+
+@onready var player = $Player  # Reference to the Player AnimatedSprite2D
+@onready var timer = $Player/Timer # Reference to the Timer node under Player
+
 
 func _ready():
 	Global.score = 0
@@ -31,7 +36,19 @@ func _process(delta):
 		health_bar.value = 999999 - Global.score
 		if Global.combo != 0:
 			score_display.text += "\n" + str(Global.combo) + "x Combo"
+			
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		
+		if last_hit:
+			player.play("hit_left")
+		else:
+			player.play("hit_right")
+		last_hit = !last_hit
+		
+		timer.start(1)
 
+		
 func _on_Conductor_beat(song_position_in_beats):
 	var beatmap = StaticData.beatmapData["notes"]
 	#print("Loaded beatmap:", beatmap)	# debugging: confirm beatmap data loaded correctly
@@ -68,3 +85,7 @@ func spawn_note(position: Vector2):
 func _on_conductor_song_over():
 	song_is_over = true
 	score_display.text = ""
+
+
+func _on_timer_timeout():
+	player.play("idle")
