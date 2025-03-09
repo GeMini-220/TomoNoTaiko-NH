@@ -16,7 +16,7 @@ func _process(delta):
 	if note_held: # while the note is held, record time held
 		time_held += delta
 		progress.value = 100 * time_held / duration
-		sprite.rotate(delta * deg_to_rad(degrees_per_second * hold_time / duration))
+		sprite.rotate(delta * deg_to_rad(degrees_per_second * time_held / duration))
 		# if the note was held for the full duration, hold_rating is perfect
 		if time_held > duration:
 			hold_rating = Global.Rating.PERFECT
