@@ -59,8 +59,7 @@ func add_score(points: int):
 		highest_combo = combo
 	#print("Current Score: ", score, " | Combo: x", combo)
 
-func add_score_from_rating(rating: int):
-	var adjusted_score
+func add_score_from_rating(rating: int) -> void:
 	match rating:
 		Rating.PERFECT:
 			add_score(standard_score)
@@ -71,7 +70,16 @@ func add_score_from_rating(rating: int):
 		Rating.BAD:
 			add_score(0)
 	rating_count[rating] += 1
+	
+func hit(rating: int) -> void:
+	add_score_from_rating(rating)
+	#create_rating_visual(rating, get_global_mouse_position())
 
+func miss(note_pos: Vector2) -> void:
+	add_score_from_rating(Rating.MISS)
+	#create_rating_visual(Rating.MISS, note_pos)
+	reset_combo()
+	
 # reset score(call when starting level)
 func reset_score():
 	score = 0
@@ -80,4 +88,4 @@ func reset_score():
 
 func reset_combo()-> void:
 	combo = 0
-	rating_count[Rating.MISS] += 1
+	
