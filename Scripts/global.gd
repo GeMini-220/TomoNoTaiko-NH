@@ -79,11 +79,6 @@ func add_score_from_rating(rating: int) -> void:
 		Rating.BAD:
 			add_score(0)
 	rating_count[rating] += 1
-	
-func hit(rating: int) -> void:
-	add_score_from_rating(rating)
-	note_hit.emit()
-	#create_rating_visual(rating, get_global_mouse_position())
 
 func create_rating_visual(rating: int, visual_pos: Vector2) -> void:
 	var rv = rate_visual.instantiate()
@@ -92,6 +87,7 @@ func create_rating_visual(rating: int, visual_pos: Vector2) -> void:
 
 func hit(rating: int) -> void:
 	add_score_from_rating(rating)
+	note_hit.emit()
 	create_rating_visual(rating, get_global_mouse_position())
 
 func miss(note_pos: Vector2) -> void:
