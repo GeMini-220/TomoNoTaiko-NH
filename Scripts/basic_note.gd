@@ -2,7 +2,7 @@ extends Node2D
 
 var time_elapsed : float = 0.0
 @onready var sprite = $Sprite
-#@onready var rate_visual = preload("res://Scenes/Rating Visual.tscn")
+@onready var rate_visual = preload("res://Scenes/Rating Visual.tscn")
 
 func _ready():
 	$Area2D.connect("input_event", _note_clicked)
