@@ -1,9 +1,9 @@
 [gd_scene load_steps=44 format=3 uid="uid://bejoc4r7t4bme"]
 
-[ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_sbioy"]
+[ext_resource type="Script" uid="uid://fif0xyvvteyi" path="res://Scripts/beatmap_interpreter.gd" id="1_sbioy"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_av52p"]
 [ext_resource type="AudioStream" uid="uid://devx58t3832kd" path="res://Assets/Sound Tracks/cyber-gorgon_180_v1.mp3" id="3_t4f6f"]
-[ext_resource type="VideoStream" path="res://Assets/UI/Background/speedline_test.ogv" id="3_y5lty"]
+[ext_resource type="VideoStream" uid="uid://o2k1svyjdwi8" path="res://Assets/UI/Background/speedline_test.ogv" id="3_y5lty"]
 [ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="4_dofva"]
 [ext_resource type="Texture2D" uid="uid://di2il6av83xcf" path="res://Assets/UI/Background/Empty Health.png" id="5_tr51w"]
 [ext_resource type="Texture2D" uid="uid://b51v4bbp66myw" path="res://Assets/UI/Background/Score.png" id="6_01w23"]
@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://u061l6aerlhj" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_20_delay-0.09s.png" id="33_jvx6s"]
 [ext_resource type="Texture2D" uid="uid://lkegfs5yxhfr" path="res://Assets/UI/Background/Mask.png" id="33_sr6d1"]
 [ext_resource type="Texture2D" uid="uid://dk4v45vo0bvyu" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_21_delay-0.08s.png" id="34_6bgm6"]
-[ext_resource type="Script" path="res://Scenes/player.gd" id="35_41hg2"]
+[ext_resource type="Script" uid="uid://ggc3ltbt4sx" path="res://Scenes/player.gd" id="35_41hg2"]
 [ext_resource type="Texture2D" uid="uid://ca6a84bdxor6k" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_22_delay-0.08s.png" id="35_krwro"]
 [ext_resource type="Texture2D" uid="uid://ciieufhsmb386" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_23_delay-0.09s.png" id="36_8txrl"]
 [ext_resource type="Texture2D" uid="uid://b80vl1p3s5qpv" path="res://Assets/UI/Level 2/Player/gyaru_idle.png" id="36_8ykw8"]
@@ -151,6 +151,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_j46b3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Taiko:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(367.14, 424.265)]
+}
+
 [sub_resource type="Animation" id="Animation_v1l34"]
 resource_name = "taiko_vibration"
 length = 0.45
@@ -167,25 +182,10 @@ tracks/0/keys = {
 "values": [Vector2(367.14, 424.265), Vector2(333.155, 424.265), Vector2(367.669, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(367.14, 424.265)]
 }
 
-[sub_resource type="Animation" id="Animation_j46b3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Taiko:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(367.14, 424.265)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a887h"]
 _data = {
-"RESET": SubResource("Animation_j46b3"),
-"taiko_vibration": SubResource("Animation_v1l34")
+&"RESET": SubResource("Animation_j46b3"),
+&"taiko_vibration": SubResource("Animation_v1l34")
 }
 
 [node name="beatmape interpreter test scene" type="Node2D"]
@@ -193,6 +193,7 @@ script = ExtResource("1_sbioy")
 
 [node name="Conductor" parent="." instance=ExtResource("2_av52p")]
 stream = ExtResource("3_t4f6f")
+bpm = 180
 
 [node name="Timer" type="Timer" parent="Conductor"]
 one_shot = true
@@ -277,7 +278,7 @@ texture = ExtResource("10_o25p0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Taiko"]
 root_node = NodePath("../../Player")
 libraries = {
-"": SubResource("AnimationLibrary_a887h")
+&"": SubResource("AnimationLibrary_a887h")
 }
 
 [connection signal="song_over" from="Conductor" to="." method="_on_conductor_song_over"]
