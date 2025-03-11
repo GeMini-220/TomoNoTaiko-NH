@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c71s66mj6flx3"]
 
-[ext_resource type="Script" uid="uid://b6a7e7qnasa0i" path="res://Scripts/options_menu.gd" id="1_xrvgt"]
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_xrvgt"]
 [ext_resource type="FontFile" uid="uid://ngyldno8k73c" path="res://Assets/UI/Fonts/Sddystopiandemo-GO7xa.otf" id="2_a1wlp"]
-[ext_resource type="VideoStream" uid="uid://bnol03v0ry28s" path="res://Assets/UI/Background/Level 1.ogv" id="2_kqm57"]
+[ext_resource type="VideoStream" path="res://Assets/UI/Background/Level 1.ogv" id="2_kqm57"]
 [ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="3_dar5k"]
 [ext_resource type="AudioStream" uid="uid://cifb3gv51fbrx" path="res://Assets/SFX/TNTNH Menu Button Hover 2.wav" id="4_60fcb"]
 
