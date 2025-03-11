@@ -80,8 +80,8 @@
 	{"type": "hold", "beat": 560, "location": [800, 170], "duration": 1.364},
 	{"type": "hold", "beat": 576, "location": [687, 307], "duration": 1.364},
 	{"type": "hold", "beat": 592, "location": [575, 444], "duration": 1.364},
-	{"type": "hold", "beat": 608, "location": [350, 490], "duration": 0.454},
+	{"type": "hold", "beat": 608, "location": [350, 490], "duration": 1.364},
 	{"type": "hold", "beat": 616, "location": [575, 307], "duration": 0.454},
-	{"type": "basic", "beat": 624, "location": [800, 170]}
+	{"type": "basic", "beat": 624, "location": [800, 170]},
   ]
 }

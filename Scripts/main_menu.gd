@@ -72,7 +72,6 @@ func _on_prev_pressed() -> void: #Decrements selected song and calls various fun
 	
 func _ready() -> void:
 	Global.AudioPlayerMusic.stream = preload("res://Assets/Sound Tracks/taiko_main_theme.wav")
-	Global.AudioPlayerMusic.bus = "Music"
 	Global.AudioPlayerMusic.play()
 	Global.AudioPlayerMusic.finished.connect(self.repeat)
 	
