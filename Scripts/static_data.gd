@@ -2,13 +2,23 @@ extends Node
 
 var beatmapData = {}
 var standard_score = 0
-
-var data_file_path = "res://Assets/Beatmap/message.json"
+var current_beatmap_index = 0
+# add new beatmaps here
+var data_file_path = [
+	"res://Assets/Beatmap/Level1.json",
+	"res://Assets/Beatmap/Level2Normal.json"
+]
 
 
 func _ready():
-	beatmapData = load_json_file(data_file_path)
+	current_beatmap_index = Global.song_index
+	load_beatmap(current_beatmap_index)
 	
+func load_beatmap(index: int):
+	if index >= 0 and index < data_file_path.size():
+		beatmapData = load_json_file(data_file_path[index])
+	else:
+		print("Index out of range")
 	
 func load_json_file(filePath : String):
 	if FileAccess.file_exists(filePath):
