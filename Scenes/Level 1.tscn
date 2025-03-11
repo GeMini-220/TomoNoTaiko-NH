@@ -1,8 +1,8 @@
 [gd_scene load_steps=37 format=3 uid="uid://b03hqb6acnvni"]
 
-[ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_36v4f"]
+[ext_resource type="Script" uid="uid://23vqvwn2oj5n" path="res://Scripts/beatmap_interpreter.gd" id="1_36v4f"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_k7nr0"]
-[ext_resource type="VideoStream" path="res://Assets/UI/Background/Level 1.ogv" id="3_8rbvv"]
+[ext_resource type="VideoStream" uid="uid://bnol03v0ry28s" path="res://Assets/UI/Background/Level 1.ogv" id="3_8rbvv"]
 [ext_resource type="Texture2D" uid="uid://bcyxphb6dyu0y" path="res://Assets/UI/Boss/Timeline 2_0000.png" id="4_mfyja"]
 [ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="4_rbnvs"]
 [ext_resource type="Texture2D" uid="uid://brq3eg1v4l1i7" path="res://Assets/UI/Boss/Timeline 2_0001.png" id="5_o3g1r"]
