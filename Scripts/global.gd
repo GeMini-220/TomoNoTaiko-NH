@@ -2,6 +2,7 @@ extends Node2D
 
 signal beat(position)
 signal measure(position)
+signal note_hit
 
 #Global score and combo
 var score: int
@@ -27,15 +28,29 @@ var rating_count = {Rating.MISS: 0,
 var song_index: int
 var song_list = [
 	preload("res://Assets/Sound Tracks/Taiko Music.mp3"),
-	preload("res://Assets/Sound Tracks/One Piece OP 1 - We Are! Lyrics.mp3")
+	#preload("res://Assets/Sound Tracks/One Piece OP 1 - We Are! Lyrics.mp3"),
+	preload("res://Assets/Sound Tracks/cyber-gorgon_180_v1.mp3")
 ]
 var cover_list_200 = [
 	preload("res://Assets/Album Covers/Logo-V1.2-Circle200.png"),
-	preload("res://Assets/Album Covers/damndaniel200.png")
+	#preload("res://Assets/Album Covers/damndaniel200.png"),
+	preload("res://Assets/Album Covers/LEBRONJAMES200.png")
 ]
 var cover_list_100 = [
 	preload("res://Assets/Album Covers/Logo-V1.2-Circle100.png"),
-	preload("res://Assets/Album Covers/damndaniel100.png")
+	#preload("res://Assets/Album Covers/damndaniel100.png"),
+	preload("res://Assets/Album Covers/LEBRONJAMES100.png")
+]
+var level_scenes = [
+	"res://Scenes/Level 1.tscn",
+	"res://Scenes/Level 2.tscn"
+]
+var note_sfx_list = [
+	preload("res://Assets/SFX/Oodaiko-1.wav"),
+	preload("res://Assets/SFX/Oodaiko-2.wav"),
+	preload("res://Assets/SFX/Oodaiko-3.wav"),
+	preload("res://Assets/SFX/Oodaiko-4.wav"),
+	preload("res://Assets/SFX/Shimedaiko-1.wav")
 ]
 
 @onready var AudioPlayerMusic: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -72,6 +87,7 @@ func create_rating_visual(rating: int, visual_pos: Vector2) -> void:
 
 func hit(rating: int) -> void:
 	add_score_from_rating(rating)
+	note_hit.emit()
 	create_rating_visual(rating, get_global_mouse_position())
 
 func miss(note_pos: Vector2) -> void:

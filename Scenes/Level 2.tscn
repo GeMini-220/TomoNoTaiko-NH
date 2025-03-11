@@ -1,0 +1,286 @@
+[gd_scene load_steps=44 format=3 uid="uid://bm4bim80xpta6"]
+
+[ext_resource type="Script" path="res://Scripts/beatmap_interpreter.gd" id="1_sbioy"]
+[ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_av52p"]
+[ext_resource type="AudioStream" uid="uid://devx58t3832kd" path="res://Assets/Sound Tracks/cyber-gorgon_180_v1.mp3" id="3_t4f6f"]
+[ext_resource type="VideoStream" path="res://Assets/UI/Background/speedline_test.ogv" id="3_y5lty"]
+[ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="4_dofva"]
+[ext_resource type="Texture2D" uid="uid://di2il6av83xcf" path="res://Assets/UI/Background/Empty Health.png" id="5_tr51w"]
+[ext_resource type="Texture2D" uid="uid://b51v4bbp66myw" path="res://Assets/UI/Background/Score.png" id="6_01w23"]
+[ext_resource type="Texture2D" uid="uid://uum5q3wyi37c" path="res://Assets/UI/Level 2/boss icon (Lv2).png" id="7_w8f8i"]
+[ext_resource type="Texture2D" uid="uid://x06epj2yihkn" path="res://Assets/UI/Level 2/taiko.png" id="10_o25p0"]
+[ext_resource type="Texture2D" uid="uid://cqknsh2a6810a" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_00_delay-0.08s.png" id="13_7vuu8"]
+[ext_resource type="Texture2D" uid="uid://b381ixe4a10tt" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_01_delay-0.08s.png" id="14_bhgwg"]
+[ext_resource type="Texture2D" uid="uid://cuxjljaq0td0o" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_02_delay-0.09s.png" id="15_iwkgw"]
+[ext_resource type="Texture2D" uid="uid://bmeu20ng7sf3a" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_03_delay-0.08s.png" id="16_wsf2f"]
+[ext_resource type="Texture2D" uid="uid://dnlixd7txw1lw" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_04_delay-0.08s.png" id="17_x0n3o"]
+[ext_resource type="Texture2D" uid="uid://27hxr8ecwe3r" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_05_delay-0.09s.png" id="18_vqkvh"]
+[ext_resource type="Texture2D" uid="uid://47rn4khbs0f" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_06_delay-0.08s.png" id="19_32i8d"]
+[ext_resource type="Texture2D" uid="uid://bi1u4uovxdm5o" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_07_delay-0.08s.png" id="20_dn07l"]
+[ext_resource type="Texture2D" uid="uid://ckr7wv24vl3rd" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_08_delay-0.09s.png" id="21_xbxn8"]
+[ext_resource type="Texture2D" uid="uid://dbamnb0aarkad" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_09_delay-0.08s.png" id="22_w88cc"]
+[ext_resource type="Texture2D" uid="uid://dtxjjpmafo3ns" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_10_delay-0.08s.png" id="23_u68g3"]
+[ext_resource type="Texture2D" uid="uid://bb6tqe0yolgup" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_11_delay-0.09s.png" id="24_0h12t"]
+[ext_resource type="Texture2D" uid="uid://mxyqqugosctl" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_12_delay-0.08s.png" id="25_x7tgx"]
+[ext_resource type="Texture2D" uid="uid://dxm2rbjohx6ny" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_13_delay-0.08s.png" id="26_sdkih"]
+[ext_resource type="Texture2D" uid="uid://beiyekuabio8i" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_14_delay-0.09s.png" id="27_45qor"]
+[ext_resource type="Texture2D" uid="uid://ceocty2jf6t7x" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_15_delay-0.08s.png" id="28_o8a8r"]
+[ext_resource type="Texture2D" uid="uid://h1a5yp8nn76o" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_16_delay-0.08s.png" id="29_am7yf"]
+[ext_resource type="Texture2D" uid="uid://6o4elf4kdtk7" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_17_delay-0.09s.png" id="30_agb6d"]
+[ext_resource type="Texture2D" uid="uid://4v24rlwfyqeh" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_18_delay-0.08s.png" id="31_ungnj"]
+[ext_resource type="Texture2D" uid="uid://blv63x4426pfm" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_19_delay-0.08s.png" id="32_esika"]
+[ext_resource type="Texture2D" uid="uid://u061l6aerlhj" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_20_delay-0.09s.png" id="33_jvx6s"]
+[ext_resource type="Texture2D" uid="uid://lkegfs5yxhfr" path="res://Assets/UI/Background/Mask.png" id="33_sr6d1"]
+[ext_resource type="Texture2D" uid="uid://dk4v45vo0bvyu" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_21_delay-0.08s.png" id="34_6bgm6"]
+[ext_resource type="Script" path="res://Scenes/player.gd" id="35_41hg2"]
+[ext_resource type="Texture2D" uid="uid://ca6a84bdxor6k" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_22_delay-0.08s.png" id="35_krwro"]
+[ext_resource type="Texture2D" uid="uid://ciieufhsmb386" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_23_delay-0.09s.png" id="36_8txrl"]
+[ext_resource type="Texture2D" uid="uid://b80vl1p3s5qpv" path="res://Assets/UI/Level 2/Player/gyaru_idle.png" id="36_8ykw8"]
+[ext_resource type="Texture2D" uid="uid://cq1mrqeadnve2" path="res://Assets/UI/Level 2/Player/gyaru_left.png" id="37_js5hk"]
+[ext_resource type="Texture2D" uid="uid://syjrlduvp0gq" path="res://Assets/UI/Level 2/Player/gyaru_right.png" id="38_2sv1y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aaxy0"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_7vuu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bhgwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_iwkgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wsf2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_x0n3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vqkvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_32i8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dn07l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_xbxn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_w88cc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_u68g3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_0h12t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_x7tgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_sdkih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_45qor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_o8a8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_am7yf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_agb6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ungnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_esika")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_jvx6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_6bgm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_krwro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_8txrl")
+}],
+"loop": true,
+"name": &"level 2 boss",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2c3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_js5hk")
+}],
+"loop": true,
+"name": &"hit_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_2sv1y")
+}],
+"loop": true,
+"name": &"hit_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_8ykw8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_j46b3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Taiko:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(367.14, 424.265)]
+}
+
+[sub_resource type="Animation" id="Animation_v1l34"]
+resource_name = "taiko_vibration"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Taiko:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333, 0.166667, 0.233333, 0.266667, 0.333333, 0.366667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(367.14, 424.265), Vector2(333.155, 424.265), Vector2(367.669, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(367.14, 424.265)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a887h"]
+_data = {
+"RESET": SubResource("Animation_j46b3"),
+"taiko_vibration": SubResource("Animation_v1l34")
+}
+
+[node name="beatmap interpreter" type="Node2D"]
+script = ExtResource("1_sbioy")
+
+[node name="Conductor" parent="." instance=ExtResource("2_av52p")]
+stream = ExtResource("3_t4f6f")
+bpm = 180
+
+[node name="Timer" type="Timer" parent="Conductor"]
+one_shot = true
+
+[node name="Bg" type="VideoStreamPlayer" parent="."]
+z_index = -3
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.600037, 0.595639)
+mouse_filter = 2
+stream = ExtResource("3_y5lty")
+autoplay = true
+expand = true
+loop = true
+
+[node name="ScoreDisplay" type="Label" parent="."]
+top_level = true
+offset_left = 191.0
+offset_top = 100.0
+offset_right = 394.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("4_dofva")
+theme_override_font_sizes/font_size = 40
+text = "999999"
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 26.0
+offset_top = 28.0
+offset_right = 1509.0
+offset_bottom = 655.0
+scale = Vector2(0.256, 0.256)
+max_value = 999999.0
+value = 999999.0
+fill_mode = 5
+radial_initial_angle = 175.0
+radial_center_offset = Vector2(-432, 0)
+texture_under = ExtResource("5_tr51w")
+texture_progress = ExtResource("6_01w23")
+
+[node name="BossIcon" type="Sprite2D" parent="."]
+position = Vector2(95, 84)
+rotation = -3.14159
+scale = Vector2(0.823, -0.823)
+texture = ExtResource("7_w8f8i")
+
+[node name="Mask" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(560, 328)
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("33_sr6d1")
+flip_v = true
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+z_index = -2
+position = Vector2(662, 254.735)
+scale = Vector2(0.85, 0.85)
+sprite_frames = SubResource("SpriteFrames_aaxy0")
+animation = &"level 2 boss"
+autoplay = "level 2 boss"
+frame = 15
+frame_progress = 0.218016
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("35_41hg2")
+
+[node name="Player" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(525, 456.575)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_k2c3j")
+animation = &"hit_left"
+autoplay = "idle"
+
+[node name="Timer" type="Timer" parent="Node2D/Player"]
+one_shot = true
+
+[node name="Taiko" type="Sprite2D" parent="Node2D"]
+z_index = -1
+position = Vector2(367.14, 424.265)
+scale = Vector2(0.152, 0.152)
+texture = ExtResource("10_o25p0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Taiko"]
+root_node = NodePath("../../Player")
+libraries = {
+"": SubResource("AnimationLibrary_a887h")
+}
+
+[connection signal="song_over" from="Conductor" to="." method="_on_conductor_song_over"]
+[connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
+[connection signal="timeout" from="Node2D/Player/Timer" to="Node2D" method="_on_timer_timeout"]
