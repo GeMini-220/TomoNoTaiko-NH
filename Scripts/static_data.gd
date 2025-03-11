@@ -3,7 +3,7 @@ extends Node
 var beatmapData = {}
 var standard_score = 0
 
-var data_file_path = "res://Assets/Beatmap/Taiko Music v2.json"
+var data_file_path = "res://Assets/Beatmap/message.json"
 
 
 func _ready():

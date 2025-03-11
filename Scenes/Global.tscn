@@ -4,3 +4,5 @@
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1")
+
+[connection signal="note_hit" from="." to="." method="_on_note_hit"]
