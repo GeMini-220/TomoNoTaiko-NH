@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://buj5bd4xhef8o"]
+[gd_scene load_steps=88 format=3 uid="uid://buj5bd4xhef8o"]
 
 [ext_resource type="Script" uid="uid://cjk5157qr70cx" path="res://Scripts/hold_note.gd" id="1_fs4yy"]
 [ext_resource type="Texture2D" uid="uid://bkxxu42ew12uw" path="res://Assets/UI/Notes/Basic Note v2/BasicNote00.png" id="2_moqqw"]
@@ -101,172 +101,169 @@ radius = 30.0206
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_moqqw")
+"texture": ExtResource("2_0iylg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_p5e4x")
+"texture": ExtResource("3_cpdwq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nwjxp")
+"texture": ExtResource("4_m3g5d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_vnxht")
+"texture": ExtResource("5_lxo7k")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_78h0k")
+"texture": ExtResource("6_vv25p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_7g8lx")
+"texture": ExtResource("7_46p2e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_2uoel")
+"texture": ExtResource("8_0vrca")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_64pft")
+"texture": ExtResource("9_k4bnr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_l452p")
+"texture": ExtResource("10_2liqq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_jpveh")
+"texture": ExtResource("11_vprwg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_xgwuq")
+"texture": ExtResource("12_hm6ww")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_hqii0")
+"texture": ExtResource("13_xqdc3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_xq5m6")
+"texture": ExtResource("14_22x7g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_ytd1n")
+"texture": ExtResource("15_r5jmg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_kxqwe")
+"texture": ExtResource("16_tv1o4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_2jsjr")
+"texture": ExtResource("17_vunqo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_4mldc")
+"texture": ExtResource("18_n0kiq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_83dyp")
+"texture": ExtResource("19_bvhsp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_gk2vu")
+"texture": ExtResource("20_8c32m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_k45g4")
+"texture": ExtResource("21_oanq3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_vrj23")
+"texture": ExtResource("22_s1e3x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_rduqq")
+"texture": ExtResource("23_g8rj7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_roc6v")
+"texture": ExtResource("24_4wtec")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_rqygx")
+"texture": ExtResource("25_s5f08")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_ajfp3")
+"texture": ExtResource("26_gtd2q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_mcjp1")
+"texture": ExtResource("27_u7pt3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_2v1t3")
+"texture": ExtResource("28_qgxu3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("29_s8s8s")
+"texture": ExtResource("29_nl2pn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_e7jtx")
+"texture": ExtResource("30_3u0pu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_6ufw0")
+"texture": ExtResource("31_exm21")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_p5eng")
+"texture": ExtResource("32_1jx76")
 }, {
 "duration": 1.0,
-"texture": ExtResource("33_6jnmk")
+"texture": ExtResource("33_aq2i5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("34_mvr70")
+"texture": ExtResource("34_47cwo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("35_etb63")
+"texture": ExtResource("35_nwpld")
 }, {
 "duration": 1.0,
-"texture": ExtResource("36_xtpm0")
+"texture": ExtResource("36_b5xk3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("37_bmvvn")
+"texture": ExtResource("37_5eepw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("38_6y1xo")
+"texture": ExtResource("38_1nrip")
 }, {
 "duration": 1.0,
-"texture": ExtResource("39_57h4l")
+"texture": ExtResource("39_ye66t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("40_41o14")
+"texture": ExtResource("40_aexy6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("41_qi3ii")
+"texture": ExtResource("41_iqy83")
 }, {
 "duration": 1.0,
-"texture": ExtResource("42_xuttq")
+"texture": ExtResource("42_g7uw1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("43_a5y5s")
+"texture": ExtResource("43_68pns")
 }, {
 "duration": 1.0,
-"texture": ExtResource("44_opye1")
+"texture": ExtResource("44_jabfx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("45_nhq5g")
+"texture": ExtResource("45_lxgwq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("46_wa5xx")
+"texture": ExtResource("46_nstbm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("47_wrebg")
+"texture": ExtResource("47_tatf4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("48_wonbi")
+"texture": ExtResource("48_du6ij")
 }, {
 "duration": 1.0,
-"texture": ExtResource("49_537s1")
+"texture": ExtResource("49_teidy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("50_gv2aw")
+"texture": ExtResource("50_vqdi1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("51_b6bct")
+"texture": ExtResource("51_58nhw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("52_4btkk")
+"texture": ExtResource("52_dnur4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("53_jq2xw")
+"texture": ExtResource("53_034ts")
 }, {
 "duration": 1.0,
-"texture": ExtResource("54_xok07")
+"texture": ExtResource("54_rrhtg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("55_hdsaa")
+"texture": ExtResource("55_7mq2q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("56_33ebu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("57_7hryq")
+"texture": ExtResource("56_vf0pn")
 }],
 "loop": false,
 "name": &"Idle",
@@ -274,116 +271,89 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("58_gw4uk")
+"texture": ExtResource("57_3754l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("59_dmx2k")
+"texture": ExtResource("94_26i4w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("60_2posg")
+"texture": ExtResource("95_l1e66")
 }, {
 "duration": 1.0,
-"texture": ExtResource("61_5em4h")
+"texture": ExtResource("96_f2tsy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("62_wwpbt")
+"texture": ExtResource("97_2dgao")
 }, {
 "duration": 1.0,
-"texture": ExtResource("63_unlk4")
+"texture": ExtResource("98_r8uv4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("64_thwia")
+"texture": ExtResource("99_5iq0h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("65_b1ecl")
+"texture": ExtResource("100_t348b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("66_jth17")
+"texture": ExtResource("101_dwtt1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("67_7xfjk")
+"texture": ExtResource("102_uucca")
 }, {
 "duration": 1.0,
-"texture": ExtResource("68_evmfd")
+"texture": ExtResource("103_coo6y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("69_k54pi")
+"texture": ExtResource("104_mues2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("70_t6tu6")
+"texture": ExtResource("105_64drg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("71_f5cqm")
+"texture": ExtResource("106_n40et")
 }, {
 "duration": 1.0,
-"texture": ExtResource("72_lsbim")
+"texture": ExtResource("107_1ebyf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("73_hgh8l")
+"texture": ExtResource("108_adwd3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("74_lpmqy")
+"texture": ExtResource("109_6m4cj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("75_n242u")
+"texture": ExtResource("110_hsvyp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("76_l7n8h")
+"texture": ExtResource("111_tkk4o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("77_4vbs1")
+"texture": ExtResource("112_1iomx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("78_tchpb")
+"texture": ExtResource("113_c5u86")
 }, {
 "duration": 1.0,
-"texture": ExtResource("79_xlj85")
+"texture": ExtResource("114_ns6xg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("80_owhnw")
+"texture": ExtResource("115_lpu4d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("81_e7awu")
+"texture": ExtResource("116_6x0b8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("82_aoymw")
+"texture": ExtResource("117_ormtd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("83_bwbjw")
+"texture": ExtResource("118_8dvqj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("84_vfeu6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("85_2k7pb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("86_jfcyp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("87_5x2gn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("88_i6lt1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("89_o0pve")
-}, {
-"duration": 1.0,
-"texture": ExtResource("90_oewjc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("91_e1vmv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("92_q41i2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("93_wts3f")
+"texture": ExtResource("119_qj1rt")
 }],
 "loop": false,
-"name": &"On Hit",
-"speed": 120.0
+"name": &"On Hold",
+"speed": 20.0
 }]
 
 [node name="Hold Note" type="Node2D"]
@@ -397,10 +367,35 @@ scale = Vector2(0.9, 0.9)
 shape = SubResource("CircleShape2D_15s0f")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.075, 0.075)
 sprite_frames = SubResource("SpriteFrames_ggqq4")
 animation = &"On Hit"
+
+#animation = &"On Hold"
+#showcase-winter-2025
 autoplay = "Idle"
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -91.0
+offset_right = 631.0
+offset_bottom = 629.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 4
+mouse_filter = 2
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("94_fw3f4")
+texture_progress = ExtResource("95_qr812")
+
+[connection signal="input_event" from="Area2D" to="." method="_note_clicked"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
