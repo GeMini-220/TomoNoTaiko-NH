@@ -55,6 +55,7 @@ var note_sfx_list = [
 
 @onready var AudioPlayerMusic: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var AudioPlayer: AudioStreamPlayer = AudioStreamPlayer.new()
+@onready var rate_visual = preload("res://Scenes/Rating Visual.tscn")
 
 func _ready():
 	add_child(AudioPlayer)
@@ -84,11 +85,22 @@ func hit(rating: int) -> void:
 	note_hit.emit()
 	#create_rating_visual(rating, get_global_mouse_position())
 
+
+func create_rating_visual(rating: int, visual_pos: Vector2) -> void:
+	var rv = rate_visual.instantiate()
+	get_tree().root.add_child(rv)
+	rv.set_rating(rating, visual_pos)
+
+func hit(rating: int) -> void:
+	add_score_from_rating(rating)
+	create_rating_visual(rating, get_global_mouse_position())
+
 func miss(note_pos: Vector2) -> void:
 	add_score_from_rating(Rating.MISS)
-	#create_rating_visual(Rating.MISS, note_pos)
+	create_rating_visual(Rating.MISS, note_pos)
 	reset_combo()
-	
+
+
 # reset score(call when starting level)
 func reset_score():
 	score = 0
@@ -97,8 +109,4 @@ func reset_score():
 
 func reset_combo()-> void:
 	combo = 0
-	
 
-
-func _on_note_hit():
-	pass # Replace with function body.

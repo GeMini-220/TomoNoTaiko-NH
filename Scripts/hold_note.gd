@@ -76,7 +76,7 @@ func note_end():
 	#print("Click rating: " + str(click_rating))
 	#print("Hold rating: " + str(hold_rating))
 	#print("Overall rating: " + str(overall_rating))
-	#print()
+
 
 func _on_sprite_animation_finished(): # Miss
 	if sprite.animation == "Idle":
