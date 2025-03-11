@@ -23,7 +23,7 @@ func _ready():
 	Global.combo = 0
 	Global.standard_score = 999999 / StaticData.beatmapData["notes"].size()
 	conductor.bpm = StaticData.beatmapData["bpm"]
-	conductor.play_with_beat_offset(beat_offset)
+	conductor.play_with_beat_offset(StaticData.beatmapData["offset"])
 	Global.beat.connect(_on_Conductor_beat)
 	#Global.measure.connect(_on_Conductor_measure)
 

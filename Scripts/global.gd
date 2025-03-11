@@ -45,13 +45,6 @@ var level_scenes = [
 	"res://Scenes/Level 1.tscn",
 	"res://Scenes/Level 2.tscn"
 ]
-var note_sfx_list = [
-	preload("res://Assets/SFX/Oodaiko-1.wav"),
-	preload("res://Assets/SFX/Oodaiko-2.wav"),
-	preload("res://Assets/SFX/Oodaiko-3.wav"),
-	preload("res://Assets/SFX/Oodaiko-4.wav"),
-	preload("res://Assets/SFX/Shimedaiko-1.wav")
-]
 
 @onready var AudioPlayerMusic: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var AudioPlayer: AudioStreamPlayer = AudioStreamPlayer.new()
