@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddnl2ep82hvkf"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_lo4r5"]
-[ext_resource type="VideoStream" path="res://Assets/UI/Background/Main Menu.ogv" id="2_wn5y7"]
+[ext_resource type="Script" uid="uid://xdix7joxiy88" path="res://Scripts/main_menu.gd" id="1_lo4r5"]
+[ext_resource type="VideoStream" uid="uid://fjw4j5ye0meq" path="res://Assets/UI/Background/Main Menu.ogv" id="2_wn5y7"]
 [ext_resource type="Texture2D" uid="uid://k455i70y6g63" path="res://Assets/Album Covers/Logo-V1.2-Circle200.png" id="3_vapmw"]
 [ext_resource type="AudioStream" uid="uid://cifb3gv51fbrx" path="res://Assets/SFX/TNTNH Menu Button Hover 2.wav" id="4_5ka8l"]
 [ext_resource type="Texture2D" uid="uid://dpmvnf3ri1efl" path="res://Assets/Album Covers/damndaniel100.png" id="4_tkets"]
