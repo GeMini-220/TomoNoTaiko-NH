@@ -73,8 +73,10 @@ func add_score_from_rating(rating: int) -> void:
 		Rating.PERFECT:
 			add_score(standard_score)
 		Rating.GOOD:
+			@warning_ignore("integer_division")
 			add_score(standard_score / 2)
 		Rating.OK:
+			@warning_ignore("integer_division")
 			add_score(standard_score / 5)
 		Rating.BAD:
 			add_score(0)

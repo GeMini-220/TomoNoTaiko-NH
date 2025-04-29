@@ -1,6 +1,7 @@
-[gd_scene load_steps=88 format=3 uid="uid://buj5bd4xhef8o"]
+[gd_scene load_steps=90 format=3 uid="uid://bs13sxfsitgqa"]
 
-[ext_resource type="Script" uid="uid://ceotnho7aslge" path="res://Scripts/hold_note.gd" id="1_fs4yy"]
+[ext_resource type="PackedScene" uid="uid://ufehdors2dyf" path="res://Scenes/Basic Note.tscn" id="1_arfxh"]
+[ext_resource type="Script" uid="uid://j2yta7npbvs2" path="res://Scripts/hold_note.gd" id="1_fs4yy"]
 [ext_resource type="Texture2D" uid="uid://u5chloacrhxl" path="res://Assets/UI/Notes/Hold/PreHold/Hold Pre-Animation003.png" id="2_0iylg"]
 [ext_resource type="Texture2D" uid="uid://bo8tpj2iafbvc" path="res://Assets/UI/Notes/Hold/PreHold/Hold Pre-Animation005.png" id="3_cpdwq"]
 [ext_resource type="Texture2D" uid="uid://b8fkmhjyn8opx" path="res://Assets/UI/Notes/Hold/PreHold/Hold Pre-Animation007.png" id="4_m3g5d"]
@@ -57,6 +58,8 @@
 [ext_resource type="Texture2D" uid="uid://bpcr5vkcnio0k" path="res://Assets/UI/Notes/Hold/PreHold/Hold Pre-Animation117.png" id="55_7mq2q"]
 [ext_resource type="Texture2D" uid="uid://dgxlbaqgdeadv" path="res://Assets/UI/Notes/Hold/PreHold/Hold Pre-Animation119.png" id="56_vf0pn"]
 [ext_resource type="Texture2D" uid="uid://b1f8ed63lo3vl" path="res://Assets/UI/Notes/Hold/PostHold/OnHold Animation000.png" id="57_3754l"]
+[ext_resource type="Script" uid="uid://dm0w4v4qnn7di" path="res://Scripts/click_comp.gd" id="85_1ywis"]
+[ext_resource type="Script" uid="uid://ln6pdek6m6iu" path="res://Scripts/range_comp.gd" id="86_4nw27"]
 [ext_resource type="Texture2D" uid="uid://g5ja2oousbor" path="res://Assets/UI/Notes/Hold/PostHold/OnHold Animation240.png" id="94_26i4w"]
 [ext_resource type="Texture2D" uid="uid://djw6i61lmqr8s" path="res://Assets/UI/Notes/Hold/Empty.png" id="94_fw3f4"]
 [ext_resource type="Texture2D" uid="uid://cwbud5w66ptj3" path="res://Assets/UI/Notes/Hold/PostHold/OnHold Animation241.png" id="95_l1e66"]
@@ -86,10 +89,7 @@
 [ext_resource type="Texture2D" uid="uid://rbq7c3vpcou" path="res://Assets/UI/Notes/Hold/PostHold/OnHold Animation264.png" id="118_8dvqj"]
 [ext_resource type="Texture2D" uid="uid://djc2ra20m5hxi" path="res://Assets/UI/Notes/Hold/PostHold/OnHold Animation265.png" id="119_qj1rt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_15s0f"]
-radius = 30.0206
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ggqq4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_dj08d"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -348,23 +348,23 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Hold Note" type="Node2D"]
+[node name="HoldNote" instance=ExtResource("1_arfxh")]
 script = ExtResource("1_fs4yy")
-duration = null
+duration = 1.0
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(0.9, 0.9)
-shape = SubResource("CircleShape2D_15s0f")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(0.075, 0.075)
-sprite_frames = SubResource("SpriteFrames_ggqq4")
-animation = &"On Hold"
+sprite_frames = SubResource("SpriteFrames_dj08d")
+animation = &"Idle"
 autoplay = "Idle"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="ClickComp" type="Node" parent="." index="2"]
+script = ExtResource("85_1ywis")
+
+[node name="RangeComp" type="Node" parent="." index="3"]
+script = ExtResource("86_4nw27")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." index="4"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -385,6 +385,10 @@ fill_mode = 4
 texture_under = ExtResource("94_fw3f4")
 texture_progress = ExtResource("95_qr812")
 
-[connection signal="input_event" from="Area2D" to="." method="_note_clicked"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
-[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="input_event" from="Area2D" to="ClickComp" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="RangeComp" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="RangeComp" method="_on_area_2d_mouse_exited"]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_animation_finished"]
+[connection signal="mouse_down" from="ClickComp" to="." method="_on_click_comp_mouse_down"]
+[connection signal="mouse_up" from="ClickComp" to="." method="_on_click_comp_mouse_up"]
+[connection signal="out_range" from="RangeComp" to="." method="_on_range_comp_out_range"]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1jmbionb61qg"]
+
+[ext_resource type="Script" uid="uid://bura6i34bbxa1" path="res://Scenes/player.gd" id="1_vdqda"]
+[ext_resource type="Texture2D" uid="uid://cq1mrqeadnve2" path="res://Assets/UI/Level 2/Player/gyaru_left.png" id="2_xloa1"]
+[ext_resource type="Texture2D" uid="uid://syjrlduvp0gq" path="res://Assets/UI/Level 2/Player/gyaru_right.png" id="3_4b18b"]
+[ext_resource type="Texture2D" uid="uid://b80vl1p3s5qpv" path="res://Assets/UI/Level 2/Player/gyaru_idle.png" id="4_peemv"]
+[ext_resource type="Texture2D" uid="uid://x06epj2yihkn" path="res://Assets/UI/Level 2/taiko.png" id="5_omicx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8au8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xloa1")
+}],
+"loop": true,
+"name": &"hit_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4b18b")
+}],
+"loop": true,
+"name": &"hit_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_peemv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_j46b3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Taiko:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(367.14, 424.265)]
+}
+
+[sub_resource type="Animation" id="Animation_v1l34"]
+resource_name = "taiko_vibration"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Taiko:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333, 0.166667, 0.233333, 0.266667, 0.333333, 0.366667, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(367.14, 424.265), Vector2(333.155, 424.265), Vector2(367.669, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(364.368, 424.265), Vector2(371.521, 424.265), Vector2(367.14, 424.265)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a887h"]
+_data = {
+&"RESET": SubResource("Animation_j46b3"),
+&"taiko_vibration": SubResource("Animation_v1l34")
+}
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_vdqda")
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+position = Vector2(51.2599, -74.14)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_8au8k")
+animation = &"hit_left"
+autoplay = "idle"
+
+[node name="Timer" type="Timer" parent="Player"]
+one_shot = true
+
+[node name="Taiko" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(367.14, 424.265)
+scale = Vector2(0.152, 0.152)
+texture = ExtResource("5_omicx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Taiko"]
+root_node = NodePath("../../Player")
+libraries = {
+&"": SubResource("AnimationLibrary_a887h")
+}
+
+[connection signal="timeout" from="Player/Timer" to="." method="_on_timer_timeout"]

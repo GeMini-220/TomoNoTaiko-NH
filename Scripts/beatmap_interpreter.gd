@@ -1,7 +1,8 @@
 extends Node2D
 
-var BasicNoteScene = preload("res://Scenes/Basic Note.tscn")
+var ClickNoteScene = preload("res://Scenes/Click Note.tscn")
 var HoldNoteScene = preload("res://Scenes/Hold Note.tscn")
+var PassiveNoteScene = preload("res://Scenes/Passive Note.tscn")
 
 var beat_offset = 2 # audio starts after 2 beats
 var time_before_very_perfect = 0.6
@@ -27,7 +28,7 @@ func _ready():
 	Global.beat.connect(_on_Conductor_beat)
 	#Global.measure.connect(_on_Conductor_measure)
 
-func _process(delta):
+func _process(_delta):
 	if not song_is_over:
 		score_display.text = str(Global.score)
 		health_bar.value = 999999 - Global.score
@@ -59,27 +60,27 @@ func _on_Conductor_beat(song_position_in_beats):
 			#print("Current beat:", current_beat, "\nSong Position:", song_position_in_beats)
 
 
-func _on_Conductor_measure(song_position_in_measure):
+func _on_Conductor_measure(_song_position_in_measure):
 	pass
 
 
-func spawn_note(position: Vector2):
-	var note_instance = BasicNoteScene.instantiate()
+func spawn_note(n_position: Vector2):
+	var note_instance = ClickNoteScene.instantiate()
 
 	var fps = very_perfect_frame / time_before_very_perfect # the 31st frame should be on beat
 	note_instance.get_node("Sprite").speed_scale = fps / 20 # 20 is default fps
 
-	note_instance.position = position
+	note_instance.position = n_position
 	add_child(note_instance)
 	#print("Note spawned at position:", position)	# Debugging: Confirm position
 
 
-func spawn_hold_note(position: Vector2, duration: float):
+func spawn_hold_note(n_position: Vector2, duration: float):
 	var hold_note_instance = HoldNoteScene.instantiate()
 	var fps = very_perfect_frame / time_before_very_perfect # the 31st frame should be on beat
 	hold_note_instance.get_node("Sprite").speed_scale = fps / 20 # 20 is default fps
 
-	hold_note_instance.position = position
+	hold_note_instance.position = n_position
 	hold_note_instance.duration = duration
 	add_child(hold_note_instance)
 	

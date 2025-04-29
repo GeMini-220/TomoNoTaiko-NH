@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bm4bim80xpta6"]
+[gd_scene load_steps=45 format=3 uid="uid://bm4bim80xpta6"]
 
 [ext_resource type="Script" uid="uid://fif0xyvvteyi" path="res://Scripts/beatmap_interpreter.gd" id="1_sbioy"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_av52p"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://b80vl1p3s5qpv" path="res://Assets/UI/Level 2/Player/gyaru_idle.png" id="36_8ykw8"]
 [ext_resource type="Texture2D" uid="uid://cq1mrqeadnve2" path="res://Assets/UI/Level 2/Player/gyaru_left.png" id="37_js5hk"]
 [ext_resource type="Texture2D" uid="uid://syjrlduvp0gq" path="res://Assets/UI/Level 2/Player/gyaru_right.png" id="38_2sv1y"]
+[ext_resource type="PackedScene" uid="uid://d1jmbionb61qg" path="res://Scenes/Character.tscn" id="39_os5x5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aaxy0"]
 animations = [{
@@ -278,6 +279,10 @@ root_node = NodePath("../../Player")
 libraries = {
 &"": SubResource("AnimationLibrary_a887h")
 }
+
+[node name="Character" parent="." instance=ExtResource("39_os5x5")]
+visible = false
+position = Vector2(474, 531)
 
 [connection signal="song_over" from="Conductor" to="." method="_on_conductor_song_over"]
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]
