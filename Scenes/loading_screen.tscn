@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dggxbpd4yhlay"]
+
+[ext_resource type="Script" uid="uid://dro8ukvm08j22" path="res://Scripts/loading_screen.gd" id="1_oobaa"]
+[ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="2_0t5xw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n71f6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_mggpi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProgressBar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_htrc2"]
+resource_name = "transition"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProgressBar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_weff3"]
+_data = {
+&"RESET": SubResource("Animation_mggpi"),
+&"transition": SubResource("Animation_htrc2")
+}
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1136732300 node_paths=PackedStringArray("animation_player")]
+layer = 10
+script = ExtResource("1_oobaa")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Panel" type="Panel" parent="." unique_id=1786439644]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n71f6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=658534250]
+libraries/ = SubResource("AnimationLibrary_weff3")
+autoplay = &"transition"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=634770656]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -38.0
+offset_right = 336.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_0t5xw")
+theme_override_font_sizes/font_size = 48

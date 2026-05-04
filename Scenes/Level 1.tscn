@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://b03hqb6acnvni"]
+[gd_scene format=3 uid="uid://b03hqb6acnvni"]
 
 [ext_resource type="Script" uid="uid://fif0xyvvteyi" path="res://Scripts/beatmap_interpreter.gd" id="1_36v4f"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_k7nr0"]
-[ext_resource type="VideoStream" uid="uid://bnol03v0ry28s" path="res://Assets/UI/Background/Level 1.ogv" id="3_8rbvv"]
+[ext_resource type="PackedScene" uid="uid://fpbfoew2gcev" path="res://Scenes/End Screen.tscn" id="3_4p8o7"]
+[ext_resource type="VideoStream" uid="uid://dstm3cxxaxmyj" path="res://Assets/UI/Background/Level 1.ogv" id="3_8rbvv"]
 [ext_resource type="Texture2D" uid="uid://bcyxphb6dyu0y" path="res://Assets/UI/Boss/Timeline 2_0000.png" id="4_mfyja"]
 [ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="4_rbnvs"]
 [ext_resource type="Texture2D" uid="uid://brq3eg1v4l1i7" path="res://Assets/UI/Boss/Timeline 2_0001.png" id="5_o3g1r"]
@@ -121,16 +122,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="beatmap interpreter" type="Node2D"]
+[node name="beatmap interpreter" type="Node2D" unique_id=1101844492]
 script = ExtResource("1_36v4f")
 
-[node name="Conductor" parent="." instance=ExtResource("2_k7nr0")]
+[node name="Conductor" parent="." unique_id=429723409 instance=ExtResource("2_k7nr0")]
 bpm = 524
+end_screen = ExtResource("3_4p8o7")
 
-[node name="Timer" type="Timer" parent="Conductor"]
+[node name="Timer" type="Timer" parent="Conductor" unique_id=551334628]
 one_shot = true
 
-[node name="Bg" type="VideoStreamPlayer" parent="."]
+[node name="Bg" type="VideoStreamPlayer" parent="." unique_id=1607329385]
 z_index = -3
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -140,7 +142,7 @@ stream = ExtResource("3_8rbvv")
 autoplay = true
 loop = true
 
-[node name="ScoreDisplay" type="Label" parent="."]
+[node name="ScoreDisplay" type="Label" parent="." unique_id=1342900634]
 top_level = true
 offset_left = 191.0
 offset_top = 100.0
@@ -150,7 +152,7 @@ theme_override_fonts/font = ExtResource("4_rbnvs")
 theme_override_font_sizes/font_size = 40
 text = "999999"
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1107646622]
 offset_left = 26.0
 offset_top = 28.0
 offset_right = 1509.0
@@ -164,7 +166,7 @@ radial_center_offset = Vector2(-432, 0)
 texture_under = ExtResource("34_0ef40")
 texture_progress = ExtResource("29_u8pq6")
 
-[node name="Boss" type="AnimatedSprite2D" parent="."]
+[node name="Boss" type="AnimatedSprite2D" parent="." unique_id=680253143]
 z_index = -2
 position = Vector2(400, 348)
 scale = Vector2(0.4, 0.4)
@@ -172,29 +174,29 @@ sprite_frames = SubResource("SpriteFrames_cmopy")
 animation = &"boss_animation"
 autoplay = "boss_animation"
 
-[node name="Railing" type="Sprite2D" parent="."]
+[node name="Railing" type="Sprite2D" parent="." unique_id=131565016]
 visible = false
 position = Vector2(576.619, 245.125)
 scale = Vector2(0.736098, 0.736098)
 texture = ExtResource("31_v2phh")
 
-[node name="BossIcon" type="Sprite2D" parent="."]
+[node name="BossIcon" type="Sprite2D" parent="." unique_id=197871037]
 position = Vector2(102.32, 80.8992)
 scale = Vector2(-0.221563, 0.221563)
 texture = ExtResource("31_pgdfy")
 
-[node name="Mask" type="Sprite2D" parent="."]
+[node name="Mask" type="Sprite2D" parent="." unique_id=2011079044]
 z_index = -1
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("33_6sw1e")
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Player" type="Sprite2D" parent="." unique_id=1046960490]
 position = Vector2(763, 512)
 scale = Vector2(-0.212, 0.212)
 texture = ExtResource("33_uv84f")
 
-[node name="Taiko" type="Sprite2D" parent="."]
+[node name="Taiko" type="Sprite2D" parent="." unique_id=599253519]
 z_index = -1
 position = Vector2(932, 535)
 scale = Vector2(0.302147, 0.302147)

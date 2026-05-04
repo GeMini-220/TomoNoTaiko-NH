@@ -8,21 +8,27 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Tomo No Taiko: New Horizons"
 run/main_scene="res://Scenes/Main Menu.tscn"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Assets/Logo/Logo-V1.2-Circle.png"
 
 [audio]
 
 buses/default_bus_layout="res://Assets/Audio Bus/Audio Bus Layout.tres"
+driver/output_latency.web=15
 
 [autoload]
 
 Global="*res://Scenes/Global.tscn"
-StaticData="*res://Scripts/static_data.gd"
+StaticData="*res://Scripts/Autoloads/static_data.gd"
+SceneLoader="*uid://dbhv1x418hfkd"
 
 [display]
 

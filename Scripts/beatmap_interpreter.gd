@@ -1,15 +1,22 @@
 extends Node2D
 
+var resources_to_load: Array = [
+	"res://Assets/UI/Background/Level 1.ogv",
+	"res://Scenes/Basic Note.tscn",
+	"res://Scenes/Hold Note.tscn",
+]
+
 var BasicNoteScene = preload("res://Scenes/Basic Note.tscn")
 var HoldNoteScene = preload("res://Scenes/Hold Note.tscn")
 
-var beat_offset = 2 # audio starts after 2 beats
-var time_before_very_perfect = 0.6
-var very_perfect_frame = 30 # 31 is the perfect frame
-var current_x = 0
-var current_y = 0
-var current_beat = 0
-var current_type
+var lead_in_time = 1.0  # seconds of silence before audio starts
+var beat_offset := 2 # audio starts after 2 beats
+var time_before_very_perfect := 0.6
+var very_perfect_frame := 30 # 31 is the perfect frame
+var current_x := 0
+var current_y := 0
+var current_beat := 0
+var current_type: String
 
 var song_is_over = false
 
@@ -23,9 +30,12 @@ func _ready():
 	Global.combo = 0
 	Global.standard_score = 999999 / StaticData.beatmapData["notes"].size()
 	conductor.bpm = StaticData.beatmapData["bpm"]
-	conductor.play_with_beat_offset(StaticData.beatmapData["offset"])
 	Global.beat.connect(_on_Conductor_beat)
-	#Global.measure.connect(_on_Conductor_measure)
+	start_game()
+
+func start_game():
+	await get_tree().create_timer(lead_in_time).timeout
+	conductor.play_with_beat_offset(StaticData.beatmapData["offset"])
 
 func _process(delta):
 	if not song_is_over:
@@ -44,9 +54,12 @@ func _on_Conductor_beat(song_position_in_beats):
 		current_beat = note["beat"]
 		current_type = note.get("type", "basic")	# default to basic note
 		
-		if current_beat == song_position_in_beats:
+		if current_beat == song_position_in_beats + beat_offset:
+			var target_beat_time = note["beat"] * conductor.sec_per_beat
+			var time_to_spawn = (target_beat_time - conductor.song_position) - time_before_very_perfect
+			
 			var timer = Timer.new()
-			timer.wait_time = conductor.sec_per_beat * beat_offset - time_before_very_perfect # delay for 2 beats - 300ms before spawn
+			timer.wait_time = max(time_to_spawn, 0.001)
 			timer.one_shot = true
 			if current_type == "hold":
 				var duration = note["duration"]

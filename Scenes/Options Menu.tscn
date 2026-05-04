@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c71s66mj6flx3"]
+[gd_scene format=3 uid="uid://c71s66mj6flx3"]
 
-[ext_resource type="Script" uid="uid://b6a7e7qnasa0i" path="res://Scripts/options_menu.gd" id="1_xrvgt"]
+[ext_resource type="Script" uid="uid://bv0hke0q3ygmg" path="res://Scripts/options_menu.gd" id="1_xrvgt"]
 [ext_resource type="FontFile" uid="uid://ngyldno8k73c" path="res://Assets/UI/Fonts/Sddystopiandemo-GO7xa.otf" id="2_a1wlp"]
-[ext_resource type="VideoStream" uid="uid://bnol03v0ry28s" path="res://Assets/UI/Background/Level 1.ogv" id="2_kqm57"]
+[ext_resource type="VideoStream" uid="uid://dstm3cxxaxmyj" path="res://Assets/UI/Background/Level 1.ogv" id="2_kqm57"]
 [ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="3_dar5k"]
 [ext_resource type="AudioStream" uid="uid://cifb3gv51fbrx" path="res://Assets/SFX/TNTNH Menu Button Hover 2.wav" id="4_60fcb"]
 
@@ -50,7 +50,7 @@ func _on_master_drag_ended(value_changed):
 	pass # Replace with function body.
 "
 
-[node name="Options_Menu" type="Control"]
+[node name="Options_Menu" type="Control" unique_id=1651399426]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xrvgt")
 
-[node name="Bg" type="VideoStreamPlayer" parent="."]
+[node name="Bg" type="VideoStreamPlayer" parent="." unique_id=83191803]
 z_index = -3
 layout_mode = 0
 offset_right = 1920.0
@@ -70,7 +70,7 @@ stream = ExtResource("2_kqm57")
 autoplay = true
 loop = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1584254388]
 z_index = 1
 layout_mode = 0
 offset_left = 64.0
@@ -80,8 +80,8 @@ offset_bottom = 608.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.392157)
 
-[node name="Back" type="Button" parent="."]
-layout_mode = 2
+[node name="Back" type="Button" parent="." unique_id=2069532123]
+layout_mode = 0
 offset_left = 960.0
 offset_top = 40.0
 offset_right = 1108.0
@@ -90,7 +90,7 @@ theme_override_fonts/font = ExtResource("2_a1wlp")
 theme_override_font_sizes/font_size = 40
 text = "BACK"
 
-[node name="OptionsLabel" type="Label" parent="."]
+[node name="OptionsLabel" type="Label" parent="." unique_id=1091633108]
 layout_mode = 0
 offset_left = 336.0
 offset_top = 32.0
@@ -101,7 +101,7 @@ theme_override_font_sizes/font_size = 80
 text = "OPTIONS"
 horizontal_alignment = 1
 
-[node name="MasterVolume" type="Label" parent="."]
+[node name="MasterVolume" type="Label" parent="." unique_id=1745051033]
 z_index = 2
 layout_mode = 0
 offset_left = 432.0
@@ -113,7 +113,7 @@ theme_override_font_sizes/font_size = 40
 text = "Master Volume"
 horizontal_alignment = 1
 
-[node name="MusicVolume" type="Label" parent="."]
+[node name="MusicVolume" type="Label" parent="." unique_id=1568390032]
 z_index = 2
 layout_mode = 0
 offset_left = 432.0
@@ -125,7 +125,7 @@ theme_override_font_sizes/font_size = 40
 text = "MUSIC VOLUME"
 horizontal_alignment = 1
 
-[node name="SfxVolume" type="Label" parent="."]
+[node name="SfxVolume" type="Label" parent="." unique_id=566474568]
 z_index = 2
 layout_mode = 0
 offset_left = 432.0
@@ -137,7 +137,7 @@ theme_override_font_sizes/font_size = 40
 text = "SFX VOLUME"
 horizontal_alignment = 1
 
-[node name="master" type="HSlider" parent="."]
+[node name="master" type="HSlider" parent="." unique_id=70673145]
 z_index = 2
 layout_mode = 0
 offset_left = 96.0
@@ -150,7 +150,7 @@ tick_count = 11
 script = SubResource("GDScript_8t52h")
 bus_name = "Master"
 
-[node name="music" type="HSlider" parent="."]
+[node name="music" type="HSlider" parent="." unique_id=150005774]
 z_index = 2
 layout_mode = 0
 offset_left = 96.0
@@ -163,7 +163,7 @@ tick_count = 11
 script = SubResource("GDScript_rwsj2")
 bus_name = "Music"
 
-[node name="sfx" type="HSlider" parent="."]
+[node name="sfx" type="HSlider" parent="." unique_id=335760232]
 z_index = 2
 layout_mode = 0
 offset_left = 96.0
@@ -176,7 +176,7 @@ tick_count = 11
 script = SubResource("GDScript_rwsj2")
 bus_name = "SFX"
 
-[node name="OnHoverAudio" type="AudioStreamPlayer" parent="."]
+[node name="OnHoverAudio" type="AudioStreamPlayer" parent="." unique_id=757126373]
 stream = ExtResource("4_60fcb")
 volume_db = 6.0
 bus = &"SFX"

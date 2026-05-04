@@ -1,10 +1,11 @@
-[gd_scene load_steps=44 format=3 uid="uid://bm4bim80xpta6"]
+[gd_scene format=3 uid="uid://bm4bim80xpta6"]
 
 [ext_resource type="Script" uid="uid://fif0xyvvteyi" path="res://Scripts/beatmap_interpreter.gd" id="1_sbioy"]
 [ext_resource type="PackedScene" uid="uid://6pfc4j80qsvn" path="res://Scenes/Conductor.tscn" id="2_av52p"]
 [ext_resource type="AudioStream" uid="uid://devx58t3832kd" path="res://Assets/Sound Tracks/cyber-gorgon_180_v1.mp3" id="3_t4f6f"]
 [ext_resource type="VideoStream" uid="uid://ntfthrvxagxv" path="res://Assets/UI/Background/speedline_test.ogv" id="3_y5lty"]
 [ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="4_dofva"]
+[ext_resource type="PackedScene" uid="uid://fpbfoew2gcev" path="res://Scenes/End Screen.tscn" id="4_os5x5"]
 [ext_resource type="Texture2D" uid="uid://di2il6av83xcf" path="res://Assets/UI/Background/Empty Health.png" id="5_tr51w"]
 [ext_resource type="Texture2D" uid="uid://b51v4bbp66myw" path="res://Assets/UI/Background/Score.png" id="6_01w23"]
 [ext_resource type="Texture2D" uid="uid://uum5q3wyi37c" path="res://Assets/UI/Level 2/boss icon (Lv2).png" id="7_w8f8i"]
@@ -32,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://u061l6aerlhj" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_20_delay-0.09s.png" id="33_jvx6s"]
 [ext_resource type="Texture2D" uid="uid://lkegfs5yxhfr" path="res://Assets/UI/Background/Mask.png" id="33_sr6d1"]
 [ext_resource type="Texture2D" uid="uid://dk4v45vo0bvyu" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_21_delay-0.08s.png" id="34_6bgm6"]
-[ext_resource type="Script" uid="uid://bura6i34bbxa1" path="res://Scenes/player.gd" id="35_41hg2"]
+[ext_resource type="Script" uid="uid://bura6i34bbxa1" path="res://Scripts/player.gd" id="35_41hg2"]
 [ext_resource type="Texture2D" uid="uid://ca6a84bdxor6k" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_22_delay-0.08s.png" id="35_krwro"]
 [ext_resource type="Texture2D" uid="uid://ciieufhsmb386" path="res://Assets/UI/Level 2/Boss (Lv2)/frame_23_delay-0.09s.png" id="36_8txrl"]
 [ext_resource type="Texture2D" uid="uid://b80vl1p3s5qpv" path="res://Assets/UI/Level 2/Player/gyaru_idle.png" id="36_8ykw8"]
@@ -188,17 +189,18 @@ _data = {
 &"taiko_vibration": SubResource("Animation_v1l34")
 }
 
-[node name="beatmap interpreter" type="Node2D"]
+[node name="beatmap interpreter" type="Node2D" unique_id=285681728]
 script = ExtResource("1_sbioy")
 
-[node name="Conductor" parent="." instance=ExtResource("2_av52p")]
+[node name="Conductor" parent="." unique_id=675060040 instance=ExtResource("2_av52p")]
 stream = ExtResource("3_t4f6f")
 bpm = 180
+end_screen = ExtResource("4_os5x5")
 
-[node name="Timer" type="Timer" parent="Conductor"]
+[node name="Timer" type="Timer" parent="Conductor" unique_id=1239526108]
 one_shot = true
 
-[node name="Bg" type="VideoStreamPlayer" parent="."]
+[node name="Bg" type="VideoStreamPlayer" parent="." unique_id=99283331]
 z_index = -3
 offset_right = 1920.0
 offset_bottom = 1088.0
@@ -209,7 +211,7 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="ScoreDisplay" type="Label" parent="."]
+[node name="ScoreDisplay" type="Label" parent="." unique_id=1737336201]
 top_level = true
 offset_left = 191.0
 offset_top = 100.0
@@ -219,7 +221,7 @@ theme_override_fonts/font = ExtResource("4_dofva")
 theme_override_font_sizes/font_size = 40
 text = "999999"
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1029976534]
 offset_left = 26.0
 offset_top = 28.0
 offset_right = 1509.0
@@ -233,20 +235,20 @@ radial_center_offset = Vector2(-432, 0)
 texture_under = ExtResource("5_tr51w")
 texture_progress = ExtResource("6_01w23")
 
-[node name="BossIcon" type="Sprite2D" parent="."]
+[node name="BossIcon" type="Sprite2D" parent="." unique_id=268566440]
 position = Vector2(95, 84)
 rotation = -3.14159
 scale = Vector2(0.823, -0.823)
 texture = ExtResource("7_w8f8i")
 
-[node name="Mask" type="Sprite2D" parent="."]
+[node name="Mask" type="Sprite2D" parent="." unique_id=392046666]
 z_index = -1
 position = Vector2(576, 324)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("33_sr6d1")
 flip_v = true
 
-[node name="Boss" type="AnimatedSprite2D" parent="."]
+[node name="Boss" type="AnimatedSprite2D" parent="." unique_id=1723159762]
 z_index = -2
 position = Vector2(662, 254.735)
 scale = Vector2(0.85, 0.85)
@@ -254,30 +256,28 @@ sprite_frames = SubResource("SpriteFrames_aaxy0")
 animation = &"level 2 boss"
 autoplay = "level 2 boss"
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=214237219]
 script = ExtResource("35_41hg2")
 
-[node name="Player" type="AnimatedSprite2D" parent="Node2D"]
+[node name="Player" type="AnimatedSprite2D" parent="Node2D" unique_id=152830156]
 position = Vector2(525, 456.575)
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_k2c3j")
 animation = &"hit_left"
 autoplay = "idle"
 
-[node name="Timer" type="Timer" parent="Node2D/Player"]
+[node name="Timer" type="Timer" parent="Node2D/Player" unique_id=1626685660]
 one_shot = true
 
-[node name="Taiko" type="Sprite2D" parent="Node2D"]
+[node name="Taiko" type="Sprite2D" parent="Node2D" unique_id=1865159252]
 z_index = -1
 position = Vector2(367.14, 424.265)
 scale = Vector2(0.152, 0.152)
 texture = ExtResource("10_o25p0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Taiko"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Taiko" unique_id=670683976]
 root_node = NodePath("../../Player")
-libraries = {
-&"": SubResource("AnimationLibrary_a887h")
-}
+libraries/ = SubResource("AnimationLibrary_a887h")
 
 [connection signal="song_over" from="Conductor" to="." method="_on_conductor_song_over"]
 [connection signal="timeout" from="Conductor/Timer" to="Conductor" method="_on_StartTimer_timeout"]

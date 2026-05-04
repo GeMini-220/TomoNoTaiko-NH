@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://fpbfoew2gcev"]
+[gd_scene format=3 uid="uid://fpbfoew2gcev"]
 
-[ext_resource type="Script" uid="uid://bb5s1ahacry3v" path="res://Scripts/end_screen.gd" id="1_823mm"]
+[ext_resource type="Script" uid="uid://ckfderfsg5l8v" path="res://Scripts/end_screen.gd" id="1_823mm"]
 [ext_resource type="FontFile" uid="uid://ngyldno8k73c" path="res://Assets/UI/Fonts/Sddystopiandemo-GO7xa.otf" id="1_f18vb"]
 [ext_resource type="FontFile" uid="uid://dl7cj825rp1kc" path="res://Assets/UI/Fonts/Valorax-lg25V.otf" id="2_23vij"]
 [ext_resource type="Texture2D" uid="uid://lkegfs5yxhfr" path="res://Assets/UI/Background/Mask.png" id="3_exj1j"]
@@ -38,7 +38,7 @@ border_blend = true
 default_font = ExtResource("1_f18vb")
 Panel/styles/panel = SubResource("StyleBoxFlat_p23m3")
 
-[node name="End Screen" type="Control"]
+[node name="End Screen" type="Control" unique_id=854082690]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,14 +48,14 @@ grow_vertical = 2
 theme = SubResource("Theme_8ntfr")
 script = ExtResource("1_823mm")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1902828764]
 layout_mode = 0
 offset_right = 3840.0
 offset_bottom = 2160.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_exj1j")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1487131455]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -72,16 +72,16 @@ theme_override_fonts/font = ExtResource("2_23vij")
 theme_override_font_sizes/font_size = 20
 text = "Back"
 
-[node name="Result" type="Panel" parent="."]
+[node name="Result" type="Panel" parent="." unique_id=705922864]
 custom_minimum_size = Vector2(628, 628)
-layout_mode = 2
+layout_mode = 0
 offset_left = -119.0
 offset_top = 107.0
 offset_right = 509.0
 offset_bottom = 735.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa0ms")
 
-[node name="Grade" type="Label" parent="Result"]
+[node name="Grade" type="Label" parent="Result" unique_id=444073797]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -102,7 +102,7 @@ text = "S"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sync" type="Label" parent="Result"]
+[node name="Sync" type="Label" parent="Result" unique_id=927150869]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,16 +122,16 @@ text = "Fully Synchronised!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Stats" type="Panel" parent="."]
+[node name="Stats" type="Panel" parent="." unique_id=588286638]
 custom_minimum_size = Vector2(320, 320)
-layout_mode = 2
+layout_mode = 0
 offset_left = 550.0
 offset_top = 197.0
 offset_right = 1090.0
 offset_bottom = 517.0
 theme = SubResource("Theme_ne5ed")
 
-[node name="Damage" type="Label" parent="Stats"]
+[node name="Damage" type="Label" parent="Stats" unique_id=870143837]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -147,7 +147,7 @@ grow_vertical = 2
 rotation = -0.0959931
 text = "Damage"
 
-[node name="Score" type="Label" parent="Stats/Damage"]
+[node name="Score" type="Label" parent="Stats/Damage" unique_id=232085358]
 layout_mode = 0
 offset_left = -2.97119
 offset_top = 30.8573
@@ -156,8 +156,8 @@ offset_bottom = 67.8573
 theme_override_fonts/font = ExtResource("2_23vij")
 text = "99999999999"
 
-[node name="Max Combo" type="Label" parent="Stats"]
-layout_mode = 2
+[node name="Max Combo" type="Label" parent="Stats" unique_id=992626017]
+layout_mode = 0
 anchor_left = 0.0444444
 anchor_top = 0.00625
 anchor_right = 0.0444444
@@ -171,7 +171,7 @@ rotation = -0.0959931
 text = "Max Combo"
 metadata/_edit_use_anchors_ = true
 
-[node name="Combo" type="Label" parent="Stats/Max Combo"]
+[node name="Combo" type="Label" parent="Stats/Max Combo" unique_id=352336900]
 layout_mode = 0
 offset_left = -3.06708
 offset_top = 31.8527
@@ -180,8 +180,8 @@ offset_bottom = 55.8527
 theme_override_fonts/font = ExtResource("2_23vij")
 text = "69x"
 
-[node name="Ratings" type="Label" parent="Stats"]
-layout_mode = 2
+[node name="Ratings" type="Label" parent="Stats" unique_id=1536314562]
+layout_mode = 0
 anchor_left = 0.0166667
 anchor_top = 0.26875
 anchor_right = 0.0166667
@@ -193,7 +193,7 @@ rotation = -0.0959931
 text = "Perfect / Good / OK / Bad / Miss"
 metadata/_edit_use_anchors_ = true
 
-[node name="Perfect" type="Label" parent="Stats/Ratings"]
+[node name="Perfect" type="Label" parent="Stats/Ratings" unique_id=2071246818]
 layout_mode = 0
 offset_left = 37.9728
 offset_top = 43.8414
@@ -203,7 +203,7 @@ theme_override_fonts/font = ExtResource("2_23vij")
 text = "1"
 horizontal_alignment = 1
 
-[node name="Good" type="Label" parent="Stats/Ratings"]
+[node name="Good" type="Label" parent="Stats/Ratings" unique_id=493410973]
 layout_mode = 0
 offset_left = 169.424
 offset_top = 45.4478
@@ -213,7 +213,7 @@ theme_override_fonts/font = ExtResource("2_23vij")
 text = "1"
 horizontal_alignment = 1
 
-[node name="OK" type="Label" parent="Stats/Ratings"]
+[node name="OK" type="Label" parent="Stats/Ratings" unique_id=1478111410]
 layout_mode = 0
 offset_left = 254.895
 offset_top = 44.6361
@@ -223,7 +223,7 @@ theme_override_fonts/font = ExtResource("2_23vij")
 text = "1"
 horizontal_alignment = 1
 
-[node name="Bad" type="Label" parent="Stats/Ratings"]
+[node name="Bad" type="Label" parent="Stats/Ratings" unique_id=1756453734]
 layout_mode = 0
 offset_left = 339.371
 offset_top = 43.7285
@@ -233,7 +233,7 @@ theme_override_fonts/font = ExtResource("2_23vij")
 text = "1"
 horizontal_alignment = 1
 
-[node name="Miss" type="Label" parent="Stats/Ratings"]
+[node name="Miss" type="Label" parent="Stats/Ratings" unique_id=613645490]
 layout_mode = 0
 offset_left = 429.628
 offset_top = 45.387
