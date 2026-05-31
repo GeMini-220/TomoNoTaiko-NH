@@ -22,7 +22,6 @@ config/icon="res://Assets/Logo/Logo-V1.2-Circle.png"
 [audio]
 
 buses/default_bus_layout="res://Assets/Audio Bus/Audio Bus Layout.tres"
-driver/output_latency.web=15
 
 [autoload]
 
@@ -32,8 +31,7 @@ SceneLoader="*uid://dbhv1x418hfkd"
 
 [display]
 
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/mode="canvas_items"
 
 [rendering]
 

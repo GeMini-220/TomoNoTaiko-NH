@@ -31,4 +31,9 @@ func _note_clicked(_viewport, event, _shape):
 func _on_animation_finished(): # Miss
 	if sprite.animation == "Idle":
 		Global.miss(position)
+	
+	# So the sfx doesn't cut off
+	visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
